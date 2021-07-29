@@ -1,0 +1,65 @@
+1
+
+SELECT MAX(X.media) FROM (SELECT AVG(salario) as media, depto FROM empregado, departamento WHERE departamento.cod = empregado.depto GROUP BY depto) as X;
+
+
+2.
+
+CREATE TABLE tipo_projeto (
+    id_projeto int NOT NULL PRIMARY KEY,
+    nome_projeto varchar NOT NULL,
+    inicio DATE NOT NULL,
+    fim DATE NOT NULL
+);
+
+
+CREATE TABLE projeto (
+    id_relacao int NOT NULL,
+    cpf varchar NOT NULL,
+    id_projeto int NOT NULL,
+    gerente bool NOT NULL,
+    inicio DATE NOT NULL,
+    fim DATE NOT NULL,
+    PRIMARY KEY (id_relacao),
+    FOREIGN KEY (cpf) REFERENCES empregado(cpf),
+    FOREIGN KEY (id_projeto) REFERENCES tipo_projeto(id_projeto)
+);
+
+
+
+a)
+
+SELECT nome_empregado, id_projeto, gerente from projeto, empregado WHERE projeto.cpf = empregado.cpf AND projeto.inicio = '2016-05-30' AND projeto.fim = '2017-05-30';
+
+
+
+
+c)
+
+CREATE OR REPLACE FUNCTION EXC2C (str text, cod int)
+RETURNS SETOF record AS $$
+
+BEGIN
+RETURN query EXECUTE 'SELECT nome_empregado, tipo_empregado FROM ' || str || ' WHERE ' || str'.tipo_empregado = ' || cod;
+END;
+
+$$ LANGUAGE plpgsql;
+
+
+
+SELECT FROM EXEC2C(quote_ident('empregado'), 5) as f(a varchar, b int);
+
+
+d)
+
+SELECT * INTO TEMP tabela_temp FROM projeto WHERE projeto.inicio = '2016-05-30' AND projeto.fim = '2017-05-30';
+
+ERROR:  constraints on temporary tables may reference only temporary tables
+
+
+e)
+
+
+SELECT COUNT(*) FROM tabela_temp WHERE tabela_temp.fim BETWEEN '2016-05-30' AND '2017-05-30';
+
+

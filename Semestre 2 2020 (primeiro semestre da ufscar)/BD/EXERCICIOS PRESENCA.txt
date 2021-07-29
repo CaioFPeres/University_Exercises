@@ -1,0 +1,155 @@
+1 
+
+a)
+SELECT COUNT(*) FROM empregado;
+
+
+b)
+
+SELECT DISTINCT descricao FROM tipo_empregado as T WHERE NOT EXISTS ( SELECT * FROM departamento  as D WHERE NOT EXISTS ( SELECT * FROM empregado WHERE depto = d.cod AND T.cod = tipo_empregado));
+
+
+SELECT DISTINCT descricao FROM tipo_empregado, departamento, empregado WHERE departamento.cod = empregado.depto; and te.cod=e.tipo_empregado
+
+
+
+c)
+
+SELECT AVG(salario), depto FROM empregado, departamento WHERE departamento.cod = empregado.depto GROUP BY depto HAVING AVG(salario) > 1200;
+
+
+
+2
+
+CREATE OR REPLACE FUNCTION EXC2 (varchar DEFAULT 'in%')
+RETURNS SETOF bigint AS $$
+declare
+	str alias for $1;
+	cont integer;
+BEGIN
+RETURN query SELECT COUNT(*) as cont FROM empregado, departamento d WHERE d.cod = empregado.depto AND d.nome_depto LIKE STR || '%' GROUP BY depto;
+
+END;
+$$ LANGUAGE plpgsql;
+
+
+////////////////////////////////////////////////////////////////
+
+3
+
+a)
+
+ROWTYPE é um tipo de variavel que consegue guardar uma linha toda de uma tabela.
+
+%TYPE é um tipo que copia o tipo de uma estrutura do banco. Interessante pois não é necessario saber qual é o tipo que vc está se referenciando.
+
+RECORD é uma estrutura que copia uma linha da tabela, porém não é um tipo de variavel.
+
+
+
+
+b)
+
+CREATE OR REPLACE FUNCTION EXC3 (varchar DEFAULT 'in%')
+RETURNS TABLE ("Nome" varchar, "Salario" numeric, "Descricao" varchar) AS $$
+declare
+	str alias for $1;
+	cont integer;
+BEGIN
+RETURN query SELECT nome_empregado, salario, descricao FROM empregado, departamento d, tipo_empregado WHERE d.cod = empregado.depto AND tipo_empregado.cod = empregado.tipo_empregado AND d.nome_depto LIKE STR || '%';
+
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+4)
+
+a)
+
+CREATE OR REPLACE FUNCTION verifica() RETURNS TRIGGER AS $triggerverifica$
+BEGIN
+
+	IF (TG_OP = 'UPDATE') THEN
+	
+		IF (NEW.empregado.nome_empregado = NEW.empregado.supervisor) THEN
+			UPDATE empregado SET supervisor = null WHERE empregado.nome_empregado = NEW.nome_empregado;
+			RETURN NEW;
+		END IF;
+	END IF;
+	
+	IF (TG_OP = 'INSERT') THEN
+	
+		IF (NEW.empregado.nome_empregado = NEW.empregado.supervisor) THEN
+			UPDATE empregado SET supervisor = null WHERE empregado.nome_empregado = NEW.nome_empregado;
+			RETURN NEW;
+		END IF;
+	END IF;
+       	RETURN NEW;
+END;
+$triggerverifica$ LANGUAGE plpgsql;
+
+CREATE TRIGGER triggerverifica
+AFTER INSERT OR UPDATE ON empregado
+    EXECUTE PROCEDURE verifica();
+
+
+
+
+
+UPDATE empregado SET supervisor = 'Mary' WHERE empregado.cpf = '12345678911';
+
+SELECT * FROM empregado;
+
+
+
+
+
+4
+
+b)
+
+
+
+CREATE OR REPLACE FUNCTION atualiza() RETURNS TRIGGER AS $triggeratualiza$
+BEGIN
+
+	IF (TG_OP = 'UPDATE') THEN
+	
+		IF (NEW.empregado.nome_empregado = NEW.empregado.supervisor) THEN
+			UPDATE empregado SET supervisor = null WHERE empregado.nome_empregado = NEW.nome_empregado;
+			RETURN NEW;
+		END IF;
+	END IF;
+	
+	IF (TG_OP = 'INSERT') THEN
+	
+		IF (NEW.empregado.nome_empregado = NEW.empregado.supervisor) THEN
+			UPDATE empregado SET supervisor = null WHERE empregado.nome_empregado = NEW.nome_empregado;
+			RETURN NEW;
+		END IF;
+	END IF;
+       	RETURN NEW;
+END;
+$triggeratualiza$ LANGUAGE plpgsql;
+
+CREATE TRIGGER triggeratualiza
+AFTER INSERT OR UPDATE ON departamento
+    EXECUTE PROCEDURE atualiza();
+
+
+
+
+c)
+
+
+CREATE VIEW num_empregados AS
+SELECT COUNT(*), depto FROM empregado e, departamento d WHERE e.depto = d.cod GROUP BY depto;
+
+Views containing GROUP BY are not automatically updatable.
+
+
+d)
+
+
+SELECT nome_empregado, descricao INTO TEMP tabela_temp FROM empregado, tipo_empregado WHERE tipo_empregado.cod = empregado.tipo_empregado;

@@ -1,0 +1,1 @@
+B(i,j)=(255/(f_max-f_min))*(A(i,j)-f_min);

@@ -1,0 +1,1 @@
+depois de feito o index, caso adicione um novo registro, quando uma query for executada ele vai procurar primeiro no indice e depois nos valores que não estiverem no indice?

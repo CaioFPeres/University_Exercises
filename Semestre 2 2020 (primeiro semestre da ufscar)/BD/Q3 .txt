@@ -1,0 +1,32 @@
+1 - Indices são estruturas de organização de dados visando minimizar os custos e tempo de processamento. Pode ter estratégias diferentes de funcionamento, porém todas tem o objetivo de reduzir custos de processamento e tempo.
+
+2 - O comando REINDEX recria o indice a partir de novos dados que tenham sido adicionados à tabela do indice. Este comando é necessário pois o indice não fica sincronizado o tempo todo com a tabela original.
+
+3 - O processo de sintonização de BD consiste em várias práticas e análises do desempenho de consultas e inserções recorrentes, bem como o uso comum das aplicações, para tentar otimizar a performance e o tempo desses procedimentos.
+
+4 - 
+
+5 - 
+
+6 - Tabelas existentes podem ser juntadas
+(desnormalizadas) porque certos atributos de duas ou
+mais tabelas são freqüentemente necessários em
+conjunto
+
+Se os requisitos de processamento se alteram
+dinamicamente, o projeto precisa responder por meio de
+alterações no esquema conceitual
+
+
+7 - Geralmente os indices não são usados em consultas aninhadas usando IN. O uso de DISTINCT deve ser evitado pois causa uma ordenação que é um pouco custosa. O uso desnecessário de tabelas temporárias que poderiam ser evitadas por meio da junção de várias consultas em uma unica.
+
+8 - B-tree
+
+9 - Sim
+
+CREATE INDEX nome
+ON tabela(coluna1, coluna2, coluna3,...);
+
+10 - explain, analyze e vacuum
+
+11 - A principal desvantagem dos indices é que é necessário recria-los de tempos em tempos para aproveitar o ganho de desempenho com os novos valores que vão sendo inseridos na tabela.

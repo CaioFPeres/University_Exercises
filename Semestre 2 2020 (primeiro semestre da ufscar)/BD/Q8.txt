@@ -1,0 +1,17 @@
+1) A consulta que mais me chamou a atenção foi a ultima, a maior consulta de todas. Nunca imaginei que isso poderia existir. Além dela, também achei interessante a consulta com acentos, mostrando que é importante não utilizar acentos. Também não sabia que era possivel fazer uma consulta ao Access.
+
+2)
+
+  A primeira consulta utiliza o indice e a segunda não. Isso acontece pois a quantidade de resultados da segunda consulta é muito grande. O planner da execução coloca um limite para a quantidade aceitavel de tuplas retornadas para valer a pena utilizar o indice, pois ele terá q pegar todas as colunas da tupla na tabela original. Caso fosse requisitado apenas a coluna salário na segunda consulta, ele utilizaria o indice pois o salario já está no indice.
+
+
+3)
+
+
+i - A Recheck Condition acontece quando o bitmap fica muito grande, então ele é convertido para uma forma que o postgres vai lembrar o bloco das tuplas da condição, ao invés de lembrar todas as tuplas individualmente.
+ii - Geralmente o Bitmap Index Scan é utilizado quando temos um valor de retorno da consulta proximo à 50% da quantidade de todas as tuplas. Isso é, uma situação em que são muitas tuplas para usar o indice e muitas para fazer scan sequencial. Dessa forma, no bitmap scan um bloco é usado apenas uma vez durante o scan. Nesse momento é necessario fazer o Recheck Condition.
+iii - O Bitmap Heap Scan escaneia um bitmap gerado pelo Bitmap Index Scan a procura dos dados em blocos, podendo apontar diretamente às tuplas ou esparso, apontando para varios blocos contendo pelo menos uma tupla.
+
+Podemos ver as 3 situações na seguinte consulta:
+
+EXPLAIN ANALYZE SELECT * FROM empregado where salario > 100000;

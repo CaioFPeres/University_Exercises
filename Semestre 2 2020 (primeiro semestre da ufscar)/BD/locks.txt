@@ -1,0 +1,43 @@
+1) b
+
+
+2)
+
+T1:	rlock(A);
+	read(A);
+	rlock(B);
+	read(B);
+	IF A=0 THEN B:= B+1;
+	wlock(B);
+	write(B);
+	unlock(A);
+	unlock(B);
+
+T2:	rlock(B);
+	read(B);
+	rlock(A);
+	read(A);
+	IF B=0 then A:= A+1;
+	wlock(A);
+	write(A);
+	unlock(B);
+	unlock(A);
+
+Pode resultar em deadlock pois a T2 pode tentar fazer um wlock(A); que será bloqueado pelo rlock(A) de T1, e a T2 ficará em espera porém T1 também poderá ficar em espera ao tentar fazer um wlock(B); que será bloqueado pelo rlock(B); de T2.
+
+
+3)
+
+a) Não, pois existe um unlock( T1, C); seguido de um lockW( T1, B);. O protocolo 2PL requer que todos os locks venham antes de todos os unlocks para uma mesma transação.
+
+
+b) Sim, pois o lockW( T2, A); iria ter que esperar o unlock de A, que aconteceu por lockR( T1, A);.
+
+
+4) II e III
+
+
+5)
+
+O protocolo MVCC é um método de gerencia de concorrencia que provê uma alternativa ao uso de locks. Ele consegue manter a integridade do banco ao mostrar uma versão do banco de um tempo atrás.
+Sua principal vantagem em relação aos locks é que a leitura do banco não entra em conflito com a escrita e a escrita também não entra em conflito com a leitura ( nunca bloquearão outras tentativas de acesso).

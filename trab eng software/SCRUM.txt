@@ -1,0 +1,30 @@
+3 Pilares Fundamentais:
+
+Transparencia, Inspeção e Adaptação.
+
+Papeis:
+
+-Scrum Master
+-Product Owner
+-Dev Team
+
+Eventos:
+
+-Sprint Planning   -Execução Sprint
+-Daily Scrum	   -Revisão Sprint
+	-Retrospectiva Sprint
+
+Artefatos:
+
+-Product Backlog   = Funcionalidades com Prioridades. Product Backlog -> Sprints com tempo fixo (Time-Boxed), geralmente com 2 a 4 semanas.
+Cada sprint tem 3 funcionalidades a serem implementadas. As funcionalidades que tinham prioridades elevadas são implementadas primeiro.
+Depois do termino do sprint, é esperado que um incremento do produto seja entregue.
+Se houver necessidade de mudança no meio do processo, essas devem ser priorizadas de acordo com grau de importancia.Assim, continua até o fim de todos os sprints.
+Ao final do sprint, é feito o Sprint Review. Revisão para verificar se o sprint tem o esperado.
+
+
+-Sprint Backlog
+-Incremento/Entrega
+
+
+Ferramentas que auxiliam no uso do Scrum: Burndown Chart e Kanban Board.

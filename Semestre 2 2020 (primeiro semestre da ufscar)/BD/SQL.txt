@@ -1,0 +1,6 @@
+SELECT nome_depto, count(*)
+FROM empregado
+RIGHT JOIN departamento ON cod = depto
+WHERE cod NOT IN (SELECT DISTINCT depto FROM empregado INNER JOIN tipo_empregado ON cod = tipo_empregado WHERE descricao = 'secretario')
+GROUP BY cod
+HAVING count(*) > 10;

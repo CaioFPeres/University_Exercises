@@ -1,0 +1,82 @@
+# Reading C:/altera/12.1sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do TLE_Proc_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\12.1sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\12.1sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/Aluno/Desktop/caio/projeto final yeda/nanoProc.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity nanoProc
+# -- Compiling architecture exec of nanoProc
+# vcom -93 -work work {C:/Users/Aluno/Desktop/caio/projeto final yeda/DMEMORY.VHD}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity dmemory
+# -- Compiling architecture behavior of dmemory
+# 
+vsim +altera -do TLE_Proc_run_msim_rtl_vhdl.do -l msim_transcript -gui work.nanoproc
+# vsim +altera -do TLE_Proc_run_msim_rtl_vhdl.do -l msim_transcript -gui work.nanoproc 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading altera_mf.altera_mf_components
+# Loading work.nanoproc(exec)
+# Loading ieee.std_logic_signed(body)
+# Loading work.dmemory(behavior)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# do TLE_Proc_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/Users/Aluno/Desktop/caio/projeto final yeda/nanoProc.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity nanoProc
+# -- Compiling architecture exec of nanoProc
+# vcom -93 -work work {C:/Users/Aluno/Desktop/caio/projeto final yeda/DMEMORY.VHD}
+# Model Technology ModelSim ALTERA vcom 10.1b Compiler 2012.04 Apr 27 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package altera_mf_components
+# -- Compiling entity dmemory
+# -- Compiling architecture behavior of dmemory
+# 
+wave create -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 10000ps sim:/nanoproc/reset
+wave modify -driver freeze -pattern constant -value 1 -starttime 0ps -endtime 70ps Edit:/nanoproc/reset
+add wave -position end  sim:/nanoproc/IR
+wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 10000ps sim:/nanoproc/clock
+add wave -position end  sim:/nanoproc/PC
+run -all

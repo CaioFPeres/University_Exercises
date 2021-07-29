@@ -1,0 +1,26 @@
+1) - 
+
+i) O plano de consulta utilizou scan sequencial mesmo com um indice em um dos campos e com um indice de multicolunas (utilizando as colunas nome_empregado e depto). A consulta utiliza o indice apenas quando possui 2 indices, um para cada coluna.
+
+ii) Foi criado um indice no nome_empregado para buscar o nome, e o plano de consulta utilizou o indice. Após isso, foi criado outro indice para a coluna depto, e também foi utilizado para buscar pelo departamento. Após esse teste, foi criado um indice de multicolunas nas colunas nome_empregado e depto, e o plano de consulta utilizou apenas o indice de nome. Por fim, foi criado 2 indices, um em cada campo ( nome_empregado e depto) e com isso o plano de consulta utiliza os dois indices na busca.
+
+
+
+2)
+
+a) Sem o indice, o plano realiza scan sequencial. Com o indice criado na coluna nome_empregado, o plano de consulta utiliza o indice.
+
+b) Mesmo com o indice, o plano da consulta nos mostra que foi realizado um scan sequencial. Isso se deve provavelmente pelo ILIKE precisar fazer uma verificação individual dos caracteres.
+
+c) Mesmo com o indice, o plano da consulta nos mostra que foi realizado um scan sequencial. Isso se deve provavelmente pelo LIKE precisar fazer uma verificação individual dos caracteres pelo operador % na string de condição.
+
+d) Mesmo com o indice, o plano da consulta nos mostra que foi realizado um scan sequencial. Isso se deve provavelmente pelo LIKE precisar fazer uma verificação individual dos caracteres pelo operador % na string de condição.
+
+
+3)
+
+3.1 - O fillfactor geralmente é utilizado em tabelas, mas também pode ser utilizado em indice. Se trata de um parâmetro em que especificamos uma porcentagem que será utilizada em operações de inserção e atualização. Quanto menor for a porcentagem, mais espaço será reservado exclusivamente para atualizações de tuplas. Esse espaço é reservado em blocos, para cada dado. Assim, quando atualizarmos, as novas tuplas serão inseridas no mesmo bloco, mantendo a organização da tabela ou indice. Porém existe um custo para diminuirmos a porcentagem (inicialmente ela fica em 100%), e esse custo é o volume de armazenamento dos dados.
+3.2 - O valor padrão é 100%
+3.3 - A vantagem de configurar o fillfactor em porcentagens baixas é a velocidade de execução das consultas em tabelas que são atualizadas com frequencia. Porém, como desvantagem, isso acarreta um acrescimo consideravel no armazenamento do banco.
+3.4 - A vantagem é que teremos mais atualizações nos mesmos blocos em que seus dados estavam do que o normal, fazendo com que as consultas nessa tabela/indice aconteçam mais rapidamente, porém como desvantagem irá aumentar um pouco o tamanho do banco em disco.
+3.5 - O fillfactor tem valor padrão como 100, e é assim que são criadas as tabelas e indices. Não é necessário mudar o fillfactor em tabelas que não são alteradas com frequencia, pois iria aumentar o tamanho em disco sem aumentar significativamente a velocidade das consultas.

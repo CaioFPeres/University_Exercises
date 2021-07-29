@@ -1,0 +1,80 @@
+create database alocacao_salas;
+
+use alocacao_salas;
+
+create table DEPARTAMENTO(
+IDDepartamento integer auto_increment,
+Nome varchar(150),
+Sigla varchar(15),
+primary key(IDDepartamento)
+);
+
+create table CURSO(
+IDCurso integer auto_increment,
+Nome varchar(150),
+Sigla varchar(15),
+CargaHoraria time,               
+primary key(IDCurso),
+IDDepartamento integer not null,
+foreign key(IDDepartamento) references DEPARTAMENTO(IDDepartamento) on update restrict on delete restrict
+);
+
+create table SALA(
+IDSala integer auto_increment,
+Sigla varchar(15),
+TipoSala varchar(50),
+Capacidade integer,
+primary key(IDSala),
+IDDepartamento integer not null,
+foreign key(IDDepartamento) references DEPARTAMENTO(IDDepartamento) on update restrict on delete restrict
+);
+
+create table ENDERECO(
+IDEndereco integer auto_increment,
+UF char(2),
+Cidade varchar(150),
+Bairro varchar(150),
+Rua varchar(150),
+CEP char(10),
+primary key(IDEndereco)
+);
+
+create table FUNCIONARIO(
+IDFuncionario integer auto_increment,
+Nome varchar(150),
+CPF char(14),
+Email varchar(150),
+DataAdmissao date,                
+DataDemissao date,                 
+Salario numeric(12,2),
+primary key(IDFuncionario),
+IDDepartamento integer not null,
+IDEndereco integer not null,
+foreign key(IDEndereco) references ENDERECO(IDEndereco) on update restrict on delete restrict,
+foreign key(IDDepartamento) references DEPARTAMENTO(IDDepartamento) on update restrict on delete restrict
+);
+
+create table EVENTO(
+IDEvento integer auto_increment,
+Nome varchar(150),
+Descricao varchar(300),
+Sigla char(15),
+primary key(IDEvento)                
+);
+
+create table ALOCACAO(
+IDAlocacao integer auto_increment,
+DataAlocacao date,
+DataInicio date,
+DataTermino date,
+HoraInicio time,
+HoraTermino time,
+DiaSemana varchar(15),
+primary key(IDAlocacao),
+IDEvento integer not null,
+IDSala integer not null,
+IDFuncionario integer not null,
+foreign key(IDEvento) references EVENTO(IDEvento) on update restrict on delete restrict ,
+foreign key(IDSala) references SALA(IDSala) on update restrict on delete restrict ,
+foreign key(IDFuncionario) references FUNCIONARIO(IDFuncionario) on update restrict on delete restrict
+);

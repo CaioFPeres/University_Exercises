@@ -1,0 +1,62 @@
+1 - Em uma árvore AVL, um nó é considerado balanceado se as alturas das suas subárvores se diferem em até 1 nível.
+
+Para saber se um nós está ou não balanceado são propostas 3 implementações, comente cada uma delas, observando aspectos como uso de memória e tempo de processamento, justificando suas afirmações.
+
+Armazenamento e manutenção do fator de balanceamento (-1,0 e 1) das subárvores em um campo adicional em cada nó;
+Armazenamento e manutenção da altura da subárvore em um campo adicional em cada nó;
+Calcular a altura de cada subárvore quando necessário, sem gastar memória adicional em cada nó;
+
+
+2 - 
+
+Considerando a seguinte definção de árvore:
+
+
+
+struct no { int chave; struct no *esq; struct no *dir; };
+
+
+Implemente uma função que verifica se uma árvore binária qualquer é uma árvore binária de busca, ou não. Retorne verdadeiro (1) ou falso (0).
+
+
+
+int abb(struct no* raiz);
+
+
+
+
+Complexidade desejada: O(n) de tempo e O(logN) de espaço, sendo N o número de elementos.
+
+
+
+3 - Em uma árvore AVL vazia, considere a seguinte equência de operações de inserção:
+
+insert('g'); insert('a'); insert('d'); insert('f'); insert('m'); insert('p'); insert('b');
+
+Após a execusão desta sequência de operações, se imprimirmos o conteúdo de cada nó utilizando um percurso pré-ordem, o que será exibido na tela? (separe cada caracter com um espaço)
+
+
+
+
+
+
+
+4 - Considerando a ABB:
+
+
+
+struct no { int chave; struct no *esq; struct no *dir; };
+
+
+
+Implemente uma função que imprima (eficientemente) na tela todos os elementos contidos em um intervalo, não incluindo os extremos se existirem, em ordem crescente.
+
+
+
+void imprimir(struct no* raiz, int menor, int maior);
+
+
+
+Por exemplo, para a árvore a seguir, “imprimir(root, 2, 7)” exibiria na tela “3 4 6”, e “imprimir(root, 3, 11)” exibiria na tela “4 6 7 8 10”. Se não existir elemento para ser exibido, não imprima nada na tela.
+
+

@@ -1,0 +1,17 @@
+1 - A partir da afirmação, pode-se inferir que foi desenvolvida uma estrutura computacional que armazena dados e que o algoritmo resolve um problema transformando-o em partes menores.
+
+2 - Um algoritmo com complexidade logaritmica na base 7 dividiria o problema inicial em 7 partes, e o outro de base 2 dividira em 2 partes, porém como a base logaritmica age como uma constante, o algoritmo logaritmico de base 7 não apresenta desempenho melhor que o de base 2.
+
+3 - Um algoritmo com complexidade O(n) resolve uma unidade de n com custo de uma comparaçao por iteração.
+
+4 - Nó raiz é caracterizado por ser o primeiro da busca binaria, nó folha é caracterizado por ser o ultimo e nó interno é caracterizado por ser uma divisão das "raizes" da arvore.
+
+5 - Uma subárvore é caracterizada pelos ramos da pesquisa binaria. Usualmente, do lado direito fica o termo maior e do lado esquerdo o termo menor.
+
+6 - Sendo nó folha o ultimo, basta checar se o ponteiro que aponta para o próximo nó está apontando para NULL.
+
+7 - Para checar se o nó possui apenas 1 filho, basta verificar tanto o lado direito quanto o esquerdo do nó.
+
+8 - Para verificar, é necessario que ele possua uma "cabeça" que aponte para o nó folha para facilitar, ou percorrer a arvore toda para verificar que ele é o primeiro.
+
+9 - Recursivamente, o codigo deve percorrer os "ramos" da arvore sem um laço de repetição.

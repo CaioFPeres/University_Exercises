@@ -1,0 +1,565 @@
+// ESCOPO PADRÃO
+
+CREATE OR REPLACE FUNCTION EXC1()
+RETURNS SETOF RECORD AS $$
+declare
+		registro record;
+		cur1 CURSOR FOR SELECT * FROM tipo_empregado;
+BEGIN
+
+		FOR registro IN cur1 LOOP
+			--FETCH cur1 INTO registro;
+			RETURN NEXT registro;
+		END LOOP;
+END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM EXC1() AS f(nome int, descricao varchar);
+
+
+
+
+
+
+
+
+
+EXC 1 a)
+
+
+ALTER TABLE empregado ADD projeto varchar;
+
+
+
+
+CREATE OR REPLACE FUNCTION EXC1A() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT nome_empregado, tipo_empregado, projeto FROM empregado WHERE empregado.tipo_empregado = 1;
+
+BEGIN
+	BEGIN
+		
+		FOR registro IN cur1 LOOP
+			IF(registro.projeto LIKE '%;%') THEN
+				RETURN NEXT registro;
+			END IF;
+		END LOOP;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception: 
+				state : % 
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END; 
+$$ language plpgsql;
+
+SELECT * FROM EXC1A() AS f(nome varchar, tipo_empregado int, projetos varchar);
+
+
+
+EXC 1 b)
+
+/////////////////////////////////////////// NÃO FUNCIONA
+CREATE OR REPLACE FUNCTION EXC1B() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT nome_empregado, tipo_empregado, projeto FROM empregado WHERE empregado.tipo_empregado = 1;
+		arr text[];
+		r character varying;
+		num_projetos int;
+		UM int;
+BEGIN
+	BEGIN
+		
+		num_projetos = 0;
+		
+		UM = 1;
+		
+		
+		FOR registro IN cur1 LOOP
+		
+			IF(registro.projeto LIKE '%;%') THEN
+			
+				arr = array_agg(registro.projeto);
+				
+			
+				FOREACH r IN ARRAY arr LOOP
+	
+					num_projetos = num_projetos + 1;
+
+				END LOOP;
+				RETURN NEXT num_projetos;
+				
+			ELSIF(registro.projeto LIKE '%') THEN
+				RETURN NEXT UM;
+			END IF;
+			
+		END LOOP;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception:
+				state : %
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END;
+$$ language plpgsql;
+
+SELECT * FROM EXC1B() AS f(projetos int);
+////////////////////////////////////////////////////////////////////
+
+
+CREATE OR REPLACE FUNCTION EXC1B() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT nome_empregado, tipo_empregado, projeto FROM empregado WHERE empregado.tipo_empregado = 1;
+		string character varying;
+		num_projetos int;
+		UM int;
+BEGIN
+	BEGIN
+		
+		num_projetos = 0;
+		
+		UM = 1;
+		
+		
+		FOR registro IN cur1 LOOP
+		
+			IF(registro.projeto LIKE '%;%') THEN
+			
+				string = registro.projeto;	
+				num_projetos = CHAR_LENGTH(registro.projeto) - CHAR_LENGTH(replace(string, ';', '')) + 1;
+				RETURN QUERY SELECT registro.nome_empregado, num_projetos;
+				
+				
+			ELSIF(registro.projeto LIKE '%') THEN
+				RETURN QUERY SELECT registro.nome_empregado, UM;
+			END IF;
+			
+		END LOOP;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception:
+				state : %
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END;
+$$ language plpgsql;
+
+--SELECT * FROM EXC1B() AS f(Nome varchar, projetos int);
+
+
+
+
+EXC 2)
+
+
+CREATE OR REPLACE FUNCTION test(INT) RETURNS void as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+BEGIN
+	BEGIN
+		INSERT INTO tipo_empregado (cod) VALUES ($1);
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception: 
+				state : % 
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END; 
+$$ language plpgsql;
+
+--SELECT test(1);
+
+
+
+
+
+
+
+
+AULA 01
+
+1 a)
+
+
+CREATE OR REPLACE FUNCTION EXC1A() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT * FROM empregado;
+		id int;
+
+BEGIN
+	BEGIN
+		
+		id = 0;
+
+		FOR registro IN cur1 LOOP
+		
+		id = id + 1;
+			
+		END LOOP;
+		RETURN NEXT id;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception: 
+				state : % 
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END; 
+$$ language plpgsql;
+
+--SELECT * FROM EXC1A() as f(id int);
+
+
+b)
+
+
+CREATE OR REPLACE FUNCTION EXC1B() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT DISTINCT descricao FROM tipo_empregado, departamento, empregado WHERE departamento.cod = empregado.depto AND tipo_empregado.cod = empregado.tipo_empregado;
+
+
+BEGIN
+	BEGIN
+		
+		FOR registro IN cur1 LOOP
+	
+		RETURN NEXT registro;
+			
+		END LOOP;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception: 
+				state : % 
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END; 
+$$ language plpgsql;
+
+SELECT * FROM EXC1B() as f(descricao varchar);
+
+
+c)
+
+
+CREATE OR REPLACE FUNCTION EXC1C() 
+RETURNS SETOF record as $$
+DECLARE
+		v_state TEXT;
+		v_msg TEXT;
+		v_detail TEXT;
+		v_hint TEXT;
+		v_context TEXT;
+		registro record;
+		cur1 CURSOR FOR SELECT salario, depto FROM empregado, departamento WHERE departamento.cod = empregado.depto ORDER BY depto;
+		numdepto int;
+		totalsal numeric;
+		totaldepto numeric;
+
+BEGIN
+	BEGIN
+		
+		numdepto = 1;
+		totaldepto = 0;
+		totalsal = 0;
+		
+		FOR registro IN cur1 LOOP
+	
+			IF( numdepto = registro.depto ) THEN
+			
+				totalsal = totalsal + registro.salario;
+				totaldepto = totaldepto + 1;
+				
+			ELSE
+				
+				totalsal = totalsal/totaldepto;
+				if(totalsal > 1200) THEN
+					RETURN QUERY SELECT numdepto, totalsal;
+				END IF;
+				
+				totalsal = registro.salario;
+				totaldepto = 1;
+				numdepto = registro.depto;
+				
+			END IF;
+		END LOOP;
+		
+		totalsal = totalsal/totaldepto;
+		if(totalsal > 1200) THEN
+					RETURN QUERY SELECT numdepto, totalsal;
+		END IF;
+		
+		
+		EXCEPTION WHEN others THEN
+		GET STACKED DIAGNOSTICS
+				v_state = RETURNED_SQLSTATE,
+				v_msg = MESSAGE_TEXT,
+				v_detail = PG_EXCEPTION_DETAIL,
+				v_hint = PG_EXCEPTION_HINT,
+				v_context = PG_EXCEPTION_CONTEXT;
+		raise notice 'Got exception: 
+				state : % 
+				message: %
+				detail : %
+				hint : %
+				context: %', v_state, v_msg, v_detail, v_hint, v_context;
+		
+		END;
+		RETURN;
+END; 
+$$ language plpgsql;
+
+SELECT * FROM EXC1C() as f(depto int, salario numeric);
+
+
+
+EXTRACLASSE
+
+1)
+
+CREATE OR REPLACE FUNCTION EXC1()
+RETURNS SETOF RECORD AS $$
+declare
+		registro record;
+		cur1 CURSOR FOR SELECT salario, depto FROM empregado, departamento WHERE departamento.cod = empregado.depto ORDER BY depto;
+		numdepto int;
+		totalsal numeric;
+		totaldepto numeric;
+		maior numeric;
+		dep numeric;
+		
+BEGIN
+		maior = 0;
+		numdepto = 1;
+		totaldepto = 0;
+		totalsal = 0;
+		
+		FOR registro IN cur1 LOOP
+	
+			IF( numdepto = registro.depto ) THEN
+			
+				totalsal = totalsal + registro.salario;
+				totaldepto = totaldepto + 1;
+				
+			ELSE
+				
+				totalsal = totalsal/totaldepto;
+				
+				if(totalsal > 1200) THEN
+				
+					if(totalsal > maior) THEN
+						maior = totalsal;
+						dep = registro.depto;
+					END IF;
+					
+				END IF;
+				
+				totalsal = registro.salario;
+				totaldepto = 1;
+				numdepto = registro.depto;
+				
+			END IF;
+		END LOOP;
+		
+		
+		totalsal = totalsal/totaldepto;
+		if(totalsal > 1200) THEN
+					if(totalsal > maior) THEN
+						maior = totalsal;
+						dep = registro.depto;
+					END IF;
+		END IF;
+		RETURN NEXT dep;
+		
+END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM EXC1() as f(depto numeric);
+
+
+2)
+
+
+CREATE TABLE tipo_projeto (
+    id_projeto int NOT NULL PRIMARY KEY,
+    nome_projeto varchar NOT NULL,
+    inicio DATE NOT NULL,
+    fim DATE NOT NULL
+);
+
+
+CREATE TABLE projeto (
+    id_relacao int NOT NULL,
+    cpf varchar NOT NULL,
+    id_projeto int NOT NULL,
+    gerente bool NOT NULL,
+    inicio DATE NOT NULL,
+    fim DATE NOT NULL,
+    PRIMARY KEY (id_relacao),
+    FOREIGN KEY (cpf) REFERENCES empregado(cpf),
+    FOREIGN KEY (id_projeto) REFERENCES tipo_projeto(id_projeto)
+);
+
+
+
+a)
+
+
+
+CREATE OR REPLACE FUNCTION EXC2A()
+RETURNS SETOF RECORD AS $$
+declare
+		registro record;
+		cur1 CURSOR FOR SELECT nome_empregado, id_projeto, gerente, inicio, fim from projeto, empregado WHERE projeto.cpf = empregado.cpf;
+		inicio date;
+		fim date;
+BEGIN
+
+		inicio = '2016-05-30';
+		fim = '2017-05-30';
+
+		FOR registro IN cur1 LOOP
+			
+			IF (registro.inicio >= inicio AND registro.fim <= fim) THEN
+				RETURN NEXT registro;
+			END IF;
+			
+		END LOOP;
+END
+$$ LANGUAGE plpgsql;
+
+
+
+--SELECT * FROM EXC2A() AS f(nome varchar, id_projeto int, gerente boolean, inicio date, fim date);
+
+
+
+b)
+
+
+
+CREATE OR REPLACE FUNCTION EXC2B()
+RETURNS SETOF RECORD AS $$
+declare
+		registro record;
+		cur1 CURSOR FOR SELECT nome_empregado, id_projeto, gerente, inicio, fim from projeto, empregado WHERE projeto.cpf = empregado.cpf ORDER BY id_projeto;
+BEGIN
+
+		FOR registro IN cur1 LOOP
+			
+			IF (registro.gerente = 'false') THEN
+				RETURN NEXT registro;
+			END IF;
+			
+		END LOOP;
+END
+$$ LANGUAGE plpgsql;
+
+--SELECT * FROM EXC2B() AS f(nome varchar, id_projeto int, gerente boolean, inicio date, fim date);

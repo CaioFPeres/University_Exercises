@@ -1,0 +1,3 @@
+As querys de banco de dados são lineares, e só se tornam binárias quando criamos um índice. 
+Por que os desenvolvedores não fizeram o banco com inserção direta em uma árvore no disco?
+Daí não precisaria dar REINDEX

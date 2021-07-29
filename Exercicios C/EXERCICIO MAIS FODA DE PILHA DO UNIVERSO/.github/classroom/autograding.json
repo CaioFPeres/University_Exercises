@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Testes-36-11-23-51",
+      "setup": "make tests",
+      "run": "diff output.tmp output",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 100
+    }
+  ]
+}

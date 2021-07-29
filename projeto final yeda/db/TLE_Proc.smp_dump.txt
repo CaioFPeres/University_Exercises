@@ -1,0 +1,7 @@
+
+State Machine - |nanoProc|estado
+Name estado.executa estado.decodifica estado.le estado.inicia 
+estado.inicia 0 0 0 0 
+estado.le 0 0 1 1 
+estado.decodifica 0 1 0 1 
+estado.executa 1 0 0 1 

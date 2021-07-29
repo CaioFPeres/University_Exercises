@@ -1,0 +1,67 @@
+1) CREATE USER labbd01 LOGIN PASSWORD 'mypass' NOINHERIT;
+
+a)
+
+As propriedades atribuidas por default são:
+
+NOSUPERUSER, NOCREATEDB, NOCREATEROLE, NOCREATEUSER, INHERIT, NOLOGIN, -1, MD5.
+
+2) 
+
+CREATE USER labbd02 LOGIN PASSWORD 'mypass' NOINHERIT createdb createrole;
+
+3)
+
+GRANT SELECT, INSERT ON empregado to labbd02 WITH GRANT OPTION; 
+
+4)
+
+CREATE USER labbd03 NOINHERIT LOGIN PASSWORD 'mypass';
+
+5)
+
+GRANT SELECT ON empregado to labbd03;
+
+6)
+
+GRANT SELECT ON empregado to labbd01 WITH GRANT OPTION;
+
+7)
+
+GRANT SELECT ON empregado to labbd03;
+
+8)
+
+REVOKE SELECT on empregado from labbd02;
+
+Não foi possivel revogar os privilégios de leitura pois o usuario labbd02 deu privilegios de leitura para o usuario labbd03, nesse caso seria necessário usar o comando REVOKE CASCADE.
+
+9)
+
+REVOKE SELECT on empregado from labbd02 CASCADE;
+
+Foi possivel revogar os privilégios de leitura, pois com o comando CASCADE também foi revogado os privilégios que foram dados pelo labbd02, ou seja, o privilégio de leitura para o labbd03.
+
+10)
+
+FEITO
+
+11)
+
+REVOKE SELECT on empregado from labbd03;
+
+a) Sim.
+
+12)
+
+Ao repetir o 8, não é possivel revogar os privilégios de leitura pois o usuario labbd02 deu privilegios de leitura para o usuario labbd03.
+
+Ao repetir o 9, foi possivel revogar os privilégios.
+
+13)
+
+a) É possivel executar comandos SQL.
+
+14)
+
+a) Não é possivel executar comandos SQL, permissão negada.

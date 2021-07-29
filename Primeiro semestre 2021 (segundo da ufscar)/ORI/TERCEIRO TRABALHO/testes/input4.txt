@@ -1,0 +1,62 @@
+SET HASH_CLIENTES_IDX_ORDER 11;
+SET HASH_CHAVES_PIX_IDX_ORDER 1;
+SET BTREE_ORDER 3;
+SET ARQUIVO_CLIENTES '64681295655;Maria Eugenia;12/04/1980;mariaeugenia@gmail.com;15998765645;0000000000.00;;#########################################################################################################################################################################02677449273;Gabriel Augusto;04/05/1997;ga.augusto@gmail.com;15997675654;0000000000.00;;#########################################################################################################################################################################79519734993;Geovana Santana;25/10/1994;ge.santana@gmail.com;16996543652;0000000000.00;;#########################################################################################################################################################################33197347759;Gustavo Almeida;19/11/1992;galmeida@gmail.com;14998786754;0000000000.00;;###########################################################################################################################################################################37567876542;Melissa Santos;13/04/1977;melissa@gmail.com;15998765435;0000000000.00;;#############################################################################################################################################################################14565436782;Melissa Pereira;19/09/1993;melissa@gmail.com;15997654738;0000000000.00;;############################################################################################################################################################################23465784759;Jose Santos;03/07/1968;josesantos@gmail.com;14998786754;0000000000.00;;#############################################################################################################################################################################';
+
+-- OPERAÇÕES CONTEMPLADAS PELO CASO DE TESTE:
+-- (COM ARQUIVO DE CLIENTES)
+-- CADASTRO DE CLIENTES
+-- REMOÇÃO DE CLIENTE
+-- DEPÓSITO E SAQUE
+-- BUSCAR CLIENTE POR CPF
+-- LIBERAR ESPAÇO
+-- IMPRIMIR ARQUIVO DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CLIENTES
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- removendo cliente D
+DELETE FROM clientes WHERE cpf = '33197347759';
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- depósito para o cliente B
+UPDATE clientes SET saldo = saldo + 18 WHERE cpf = '23465784759';
+\echo file ARQUIVO_CLIENTES
+
+-- buscando cliente inexistente
+SELECT * FROM clientes WHERE cpf = '95229543178';
+
+-- cadastrando cliente G no lugar do cliente A removido
+INSERT INTO clientes VALUES ('95229543178', 'Roberta Lima', '17/04/1991', 'roberta91@gmail.com', '11978876623');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- buscando cliente G
+SELECT * FROM clientes WHERE cpf = '95229543178';
+
+-- depósito para o cliente G
+UPDATE clientes SET saldo = saldo + 18 WHERE cpf = '95229543178';
+\echo file ARQUIVO_CLIENTES
+
+-- cadastrando cliente H (causa o redimensionamento da tabela hash)
+INSERT INTO clientes VALUES ('44578690876', 'Melissa Pereira', '19/09/1993', 'melissa@gmail.com', '15997654738');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- removendo inexistente
+DELETE FROM clientes WHERE cpf = '44567898765';
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- removendo com colisão
+DELETE FROM clientes WHERE cpf = '37567876542';
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+VACUUM clientes;
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+\q

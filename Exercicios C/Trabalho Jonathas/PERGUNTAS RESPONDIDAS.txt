@@ -1,0 +1,16 @@
+1) O que é registro?
+
+Registro é um tipo de dado que armazena outras variaveis nele, podendo ser usado por exemplo no cadastramento de pessoas, em que cada pessoa possui suas proprias caracteristicas, como altura, idade e sexo. Tambem são chamadas de Variáveis Compostas Heterogeneas, pois permitem o armazenamento de mais de um valor dentro de um mesmo registro e os campos podem ser de tipos distintos.
+
+2) Como declarar o Registro?
+
+Para declarar um registro na linguagem C, utiliza-se o comando struct. Para guardar os dados dentro de um campo do registro, é preciso informar o nome da variavel, ponto, e em seguida o nome do campo correspondente. Por exemplo: scanf (&pessoa.sexo);
+Caso queira armazenar os dados de varias pessoas, é necessario definir um vetor de registros. Por exemplo: struct dados pessoa[7];.
+
+3) Faça o programa:
+
+
+4) Como criar um vetor com 50 clientes?
+Para criar um vetor com 50 clientes, basta usar struct dados clientes[50];.
+
+5)

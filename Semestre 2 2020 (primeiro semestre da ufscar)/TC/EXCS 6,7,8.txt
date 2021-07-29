@@ -1,0 +1,21 @@
+1)
+
+I) F
+II) V
+III) V
+IV) F
+V) F
+VI) V
+VII) ???
+VIII) ????
+
+resposta: B
+
+
+2) Item V : 
+
+Apenas um automato com pilha que possua a mesma linguagem que a gramática consegue ser reduzido à apenas 3 estados.
+
+
+3)
+

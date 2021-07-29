@@ -1,0 +1,8 @@
+1)
+
+O comando explain nos mostra o plano de execução da consulta. O comando EXPLAIN ANALYZE nos mostra o plano da consulta e também a executa de fato, mostrando estatísticas de execução.
+
+2)
+
+Primeiro o postgres irá abrir o processo de organização dos dados de acordo com a clausula ORDER BY, depois irá abrir o processo de hash join segundo a condição de união das tabelas. Em seguida, irá fazer um scan sequencial na tabela empregado procurando pela condição de junção, ao mesmo tempo que verifica na tabela tipo_empregado.
+Após terminada a junção das tabelas, irá voltar no processo de organização dos dados. Quando todos os dados tiverem organizados, o processo é finalizado pelos workers. 

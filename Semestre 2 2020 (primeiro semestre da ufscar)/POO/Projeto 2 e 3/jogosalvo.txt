@@ -1,0 +1,11 @@
+caio1 caio2
+0
+2
+t N N d r b c t 
+p N N N p p p p 
+N N P N N N N N 
+N p N N N N N N 
+N N N N D N N N 
+N N N N N N N N 
+P P N C N P P P 
+T N B N R B C T 

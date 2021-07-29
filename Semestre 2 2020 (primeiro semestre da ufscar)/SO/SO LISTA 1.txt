@@ -1,0 +1,31 @@
+1 - providenciar um sistema de arquivos para a organização do disco, lidar com as entradas e saidas,
+gerenciar regiões da memoria que sempre precisam estar executando os mesmos processos para que o computador funcione bem,
+atribuir processos em threads diferentes automaticamente para gerenciar melhor os recursos e para que o sistema não trave ao executar tarefas complexas (multiplexação e paralelização).
+
+2 - drivers, processos, sistemas de arquivos, interface.
+abstrações do hardware: pipeline
+
+3 - Multiprogramação é quando utilizamos o paralelismo para executar varias tarefas ao mesmo tempo. Implementamos através das threads.
+
+4 - O nucleo é a unidade basica do sistema operacional, que tem comunicação mais proxima da CPU, memoria e I/O.
+
+5 - O CPU é responsável por processar dados, utilizando logica aritmética no baixo nível e portas lógicas.
+A memória é dividida em duas, em que uma delas é responsável por armazenar dados voláteis e de rápido acesso, e a outra responsável por armazenar dados não-voláteis e de lento acesso.
+
+6 - Modo usuario e modo supervisor ou kernel. No modo supervisor é possivel executar instruções às I/Os, como os drivers por exemplo.
+No modo usuario, é possivel criar programas para fazer uso da memoria com supervisão do SO, dessa forma é mais dificil causar danos permanentes ao sistema. Portanto, é um modo com restrições.
+Estes modos são importantes para o sistema operacional pois o sistema precisa ter acesso irrestrito para fazer uso de drivers e aproveitar as I/Os e ao mesmo tempo o usuario precisa de grandes niveis de acesso porem garantindo que não consiga corromper o sistema.
+
+7 - Acredito não ser possivel, pois o SO precisa garantir seu funcionamento (acesso total) e garantir proteção contra erros do usuario ao mesmo tempo. A unica forma de fazer isso é limitando poder ao usuario.
+
+8 - O SO gerencia praticamente todas as memorias, mas principalmente registradores, cache e a RAM. O sistema também escreve arquivos importantes no HD.
+Em questão a velocidade, A cache e os registradores são os mais rapidos de todos e volátil, porem mais cara. A RAM é a segunda mais rapida mas também volátil. A Flash é a terceira mais rapida e não-volátil. O HD é o mais lento de todos, e não é volátil.
+
+9 - Chamadas de sistema é uma forma de interagir com coisas que apenas o SO teria a possibilidade (modo kernel). Por exemplo, ao ler um arquivo estamos chamando o SO para que ele interaja com o HD e nos retorne o arquivo.
+Quando um programa faz uma chamada ao sistema, por exemplo, ele causa uma interrupção, pois faz a requisição de uma função do SO. Quando a função é finalizada, o programa volta para sua proxima instrução.
+
+10 - Para tratar uma interrupção, o SO inicia uma rotina de serviço de interrupção. Dessa forma, o SO atribui a interrupção à uma execução paralela, para que o programa principal não trave. Para tratar, a CPU reserva uma area da memoria com uma identificação do endereço da interrupção, podendo ser vetorada ou não vetorada.
+
+11 - Ambos permitem que a CPU fique livre para poder executar varias tarefas ao mesmo tempo. Tanto ao tratar interrupções, quanto a permitir dispositivos o acesso direto à memoria, estamos deixando o processador livre para lidar com outros processos.
+
+12 - 

@@ -1,0 +1,6 @@
+[main.c:22]: (warning) scanf() without field width limits can crash with huge input data.
+[main.c:25]: (warning) scanf() without field width limits can crash with huge input data.
+[main.c:28]: (warning) scanf() without field width limits can crash with huge input data.
+[lista.c:86]: (style) The function 'procuraPiso' is never used.
+[lista.c:73]: (style) The function 'procuraPrimeiro' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

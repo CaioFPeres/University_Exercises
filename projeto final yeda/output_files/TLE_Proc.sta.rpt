@@ -1,0 +1,1155 @@
+TimeQuest Timing Analyzer report for TLE_Proc
+Fri Jun 28 12:13:45 2019
+Quartus II 64-Bit Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clock'
+ 12. Slow Model Hold: 'clock'
+ 13. Slow Model Minimum Pulse Width: 'clock'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Fast Model Setup Summary
+ 17. Fast Model Hold Summary
+ 18. Fast Model Recovery Summary
+ 19. Fast Model Removal Summary
+ 20. Fast Model Minimum Pulse Width Summary
+ 21. Fast Model Setup: 'clock'
+ 22. Fast Model Hold: 'clock'
+ 23. Fast Model Minimum Pulse Width: 'clock'
+ 24. Clock to Output Times
+ 25. Minimum Clock to Output Times
+ 26. Multicorner Timing Analysis Summary
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Setup Transfers
+ 30. Hold Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                    ;
++--------------------+-----------------------------------------------------------------+
+; Quartus II Version ; Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; TLE_Proc                                                        ;
+; Device Family      ; Cyclone II                                                      ;
+; Device Name        ; EP2C35F672C6                                                    ;
+; Timing Models      ; Final                                                           ;
+; Delay Model        ; Combined                                                        ;
+; Rise/Fall Delays   ; Unavailable                                                     ;
++--------------------+-----------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; clock      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 158.03 MHz ; 158.03 MHz      ; clock      ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clock ; -2.664 ; -92.620       ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clock ; 0.391 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clock ; -2.000 ; -237.380              ;
++-------+--------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock'                                                                                                                                                                      ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                             ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
+; -2.664 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.026     ; 3.103      ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock'                                                                                                                                                                                ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node                                                                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; estado.le         ; estado.le                                                                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 0.657      ;
+; 0.521 ; PC[7]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.787      ;
+; 0.533 ; estado.decodifica ; estado.executa                                                                                        ; clock        ; clock       ; 0.000        ; 0.000      ; 0.799      ;
+; 0.534 ; estado.decodifica ; estado.le                                                                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 0.800      ;
+; 0.749 ; estado.le         ; estado.decodifica                                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 1.015      ;
+; 0.806 ; PC[2]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.072      ;
+; 0.806 ; PC[5]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.072      ;
+; 0.806 ; PC[0]             ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.072      ;
+; 0.827 ; PC[6]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.093      ;
+; 0.839 ; PC[4]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.105      ;
+; 0.846 ; PC[1]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.112      ;
+; 0.847 ; PC[3]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.113      ;
+; 1.071 ; estado.executa    ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.071 ; estado.executa    ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.337      ;
+; 1.109 ; IR[3]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.346      ;
+; 1.119 ; IR[4]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.356      ;
+; 1.121 ; IR[1]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.358      ;
+; 1.189 ; PC[0]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.455      ;
+; 1.189 ; PC[2]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.455      ;
+; 1.213 ; PC[6]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.479      ;
+; 1.225 ; PC[4]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.491      ;
+; 1.232 ; PC[1]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.498      ;
+; 1.233 ; PC[3]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.499      ;
+; 1.260 ; PC[0]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.526      ;
+; 1.260 ; PC[2]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.526      ;
+; 1.281 ; PC[5]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.547      ;
+; 1.303 ; PC[1]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.569      ;
+; 1.304 ; PC[3]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.570      ;
+; 1.331 ; PC[0]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.597      ;
+; 1.331 ; PC[2]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.597      ;
+; 1.345 ; IR[2]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.582      ;
+; 1.352 ; PC[5]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.618      ;
+; 1.374 ; PC[1]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.640      ;
+; 1.375 ; estado.decodifica ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.375 ; estado.decodifica ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.641      ;
+; 1.384 ; PC[4]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.650      ;
+; 1.402 ; PC[0]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.668      ;
+; 1.406 ; IR[5]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.643      ;
+; 1.429 ; estado.le         ; IR[15]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[14]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[13]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[12]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[11]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[10]                                                                                                ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[9]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[8]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.429 ; estado.le         ; IR[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.029      ; 1.692      ;
+; 1.445 ; PC[1]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.711      ;
+; 1.455 ; PC[4]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.721      ;
+; 1.463 ; PC[3]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.729      ;
+; 1.473 ; PC[0]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.739      ;
+; 1.490 ; PC[2]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.756      ;
+; 1.511 ; estado.inicia     ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.511 ; estado.inicia     ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.777      ;
+; 1.534 ; PC[3]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.800      ;
+; 1.561 ; PC[2]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.827      ;
+; 1.604 ; PC[1]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.870      ;
+; 1.612 ; IR[7]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.849      ;
+; 1.632 ; PC[0]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.898      ;
+; 1.633 ; IR[6]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 1.870      ;
+; 1.675 ; PC[1]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.941      ;
+; 1.703 ; PC[0]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 1.969      ;
+; 1.775 ; IR[0]             ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.029     ; 2.012      ;
+; 1.789 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.578      ;
+; 1.961 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.750      ;
+; 1.969 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.758      ;
+; 1.970 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.759      ;
+; 1.972 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.761      ;
+; 1.975 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.764      ;
+; 2.022 ; IR[2]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; clock        ; clock       ; -0.500       ; 0.026      ; 1.782      ;
+; 2.024 ; PC[5]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; clock        ; clock       ; -0.500       ; 0.055      ; 1.813      ;
+; 2.025 ; IR[6]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; clock        ; clock       ; -0.500       ; 0.026      ; 1.785      ;
+; 2.029 ; IR[1]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; clock        ; clock       ; -0.500       ; 0.026      ; 1.789      ;
+; 2.029 ; IR[3]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; clock        ; clock       ; -0.500       ; 0.026      ; 1.789      ;
+; 2.030 ; IR[4]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; clock        ; clock       ; -0.500       ; 0.026      ; 1.790      ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock'                                                                                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[0]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[0]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[10]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[10]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[11]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[11]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[12]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[12]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[13]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[13]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[14]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[14]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[15]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[15]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[1]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[1]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[2]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[2]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[3]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[3]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[4]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[4]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[5]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[5]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[6]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[6]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[7]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[7]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[8]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[8]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[9]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[9]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg1  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg1  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg10 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg10 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg11 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg11 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg12 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg12 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg13 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg13 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg14 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg14 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg15 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg15 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg2  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg2  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg3  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg3  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg4  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg4  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg5  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg5  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg6  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg6  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg7  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg7  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg8  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg8  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg9  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg9  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a10~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a10~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a11~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a11~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a12~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a12~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a13~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a13~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a14~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a14~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a15~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a15~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a1~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a1~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a2~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a2~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a3~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a3~porta_memory_reg0  ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Clock to Output Times                                                  ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 7.240 ; 7.240 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 6.657 ; 6.657 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 7.229 ; 7.229 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 6.926 ; 6.926 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 6.896 ; 6.896 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 7.021 ; 7.021 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 7.002 ; 7.002 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 6.974 ; 6.974 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 6.908 ; 6.908 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 6.977 ; 6.977 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 7.240 ; 7.240 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 6.980 ; 6.980 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 7.186 ; 7.186 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 7.159 ; 7.159 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 6.967 ; 6.967 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 7.076 ; 7.076 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 6.991 ; 6.991 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 6.943 ; 6.943 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 6.695 ; 6.695 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 6.834 ; 6.834 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 6.729 ; 6.729 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 7.076 ; 7.076 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 6.983 ; 6.983 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 6.940 ; 6.940 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                          ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 6.657 ; 6.657 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 6.657 ; 6.657 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 7.229 ; 7.229 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 6.926 ; 6.926 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 6.896 ; 6.896 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 7.021 ; 7.021 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 7.002 ; 7.002 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 6.974 ; 6.974 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 6.908 ; 6.908 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 6.977 ; 6.977 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 7.240 ; 7.240 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 6.980 ; 6.980 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 7.186 ; 7.186 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 7.159 ; 7.159 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 6.967 ; 6.967 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 6.695 ; 6.695 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 6.991 ; 6.991 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 6.943 ; 6.943 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 6.695 ; 6.695 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 6.834 ; 6.834 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 6.729 ; 6.729 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 7.076 ; 7.076 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 6.983 ; 6.983 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 6.940 ; 6.940 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clock ; -1.479 ; -50.443       ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clock ; 0.215 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clock ; -2.000 ; -237.380              ;
++-------+--------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock'                                                                                                                                                                      ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                                                                             ; To Node ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[15]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[14]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[13]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[12]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[11]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[10]  ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[9]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[8]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[7]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[6]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[5]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; IR[4]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
+; -1.479 ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; IR[3]   ; clock        ; clock       ; 0.500        ; -0.018     ; 1.960      ;
++--------+-------------------------------------------------------------------------------------------------------+---------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock'                                                                                                                                                                                ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node         ; To Node                                                                                               ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; estado.le         ; estado.le                                                                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 0.367      ;
+; 0.238 ; PC[7]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.390      ;
+; 0.248 ; estado.decodifica ; estado.executa                                                                                        ; clock        ; clock       ; 0.000        ; 0.000      ; 0.400      ;
+; 0.248 ; estado.decodifica ; estado.le                                                                                             ; clock        ; clock       ; 0.000        ; 0.000      ; 0.400      ;
+; 0.360 ; PC[0]             ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.512      ;
+; 0.361 ; PC[2]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; PC[5]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.513      ;
+; 0.366 ; PC[6]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.518      ;
+; 0.372 ; estado.le         ; estado.decodifica                                                                                     ; clock        ; clock       ; 0.000        ; 0.000      ; 0.524      ;
+; 0.372 ; PC[4]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.524      ;
+; 0.374 ; PC[1]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.526      ;
+; 0.375 ; PC[3]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.527      ;
+; 0.498 ; PC[0]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.650      ;
+; 0.499 ; PC[2]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.651      ;
+; 0.506 ; PC[6]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.658      ;
+; 0.512 ; PC[4]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.664      ;
+; 0.514 ; PC[1]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.666      ;
+; 0.515 ; PC[3]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.667      ;
+; 0.533 ; PC[0]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.685      ;
+; 0.534 ; PC[2]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.686      ;
+; 0.544 ; estado.executa    ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.544 ; estado.executa    ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.696      ;
+; 0.549 ; PC[1]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.701      ;
+; 0.550 ; PC[3]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.702      ;
+; 0.554 ; PC[5]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.706      ;
+; 0.568 ; PC[0]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.720      ;
+; 0.569 ; PC[2]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.721      ;
+; 0.573 ; IR[3]             ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.682      ;
+; 0.578 ; IR[4]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.687      ;
+; 0.579 ; IR[1]             ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.688      ;
+; 0.584 ; PC[1]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.736      ;
+; 0.589 ; PC[5]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.741      ;
+; 0.603 ; PC[0]             ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.755      ;
+; 0.606 ; PC[4]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.758      ;
+; 0.619 ; PC[1]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.771      ;
+; 0.638 ; PC[0]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.790      ;
+; 0.641 ; PC[4]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.793      ;
+; 0.644 ; PC[3]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.796      ;
+; 0.663 ; PC[2]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.815      ;
+; 0.673 ; IR[2]             ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.782      ;
+; 0.679 ; PC[3]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.831      ;
+; 0.698 ; PC[2]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.850      ;
+; 0.709 ; estado.le         ; IR[15]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[14]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[13]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[12]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[11]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[10]                                                                                                ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[9]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[8]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.709 ; estado.le         ; IR[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.043      ; 0.890      ;
+; 0.713 ; PC[1]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.865      ;
+; 0.726 ; estado.decodifica ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.726 ; estado.decodifica ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.878      ;
+; 0.727 ; IR[5]             ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.836      ;
+; 0.732 ; PC[0]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.884      ;
+; 0.748 ; PC[1]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.900      ;
+; 0.754 ; estado.inicia     ; PC[1]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[2]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[3]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[4]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[5]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.754 ; estado.inicia     ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.906      ;
+; 0.767 ; PC[0]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; 0.000      ; 0.919      ;
+; 0.795 ; IR[7]             ; PC[7]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.904      ;
+; 0.815 ; IR[6]             ; PC[6]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.924      ;
+; 0.863 ; IR[0]             ; PC[0]                                                                                                 ; clock        ; clock       ; 0.000        ; -0.043     ; 0.972      ;
+; 1.045 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.744      ;
+; 1.118 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.817      ;
+; 1.124 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.823      ;
+; 1.126 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.825      ;
+; 1.128 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.827      ;
+; 1.130 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.829      ;
+; 1.155 ; PC[5]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.854      ;
+; 1.159 ; estado.le         ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.858      ;
+; 1.160 ; PC[2]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.859      ;
+; 1.160 ; PC[4]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.859      ;
+; 1.161 ; PC[3]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.860      ;
+; 1.167 ; PC[6]             ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ; clock        ; clock       ; -0.500       ; 0.061      ; 0.866      ;
++-------+-------------------+-------------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock'                                                                                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                                                                ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[0]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[0]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[10]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[10]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[11]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[11]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[12]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[12]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[13]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[13]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[14]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[14]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[15]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[15]                                                                                                ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[1]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[1]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[2]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[2]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[3]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[3]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[4]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[4]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[5]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[5]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[6]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[6]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[7]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[7]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[8]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[8]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Rise       ; IR[9]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Rise       ; IR[9]                                                                                                 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg1 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg2 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg3 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg4 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg5 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg6 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_address_reg7 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg1  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg1  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg10 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg10 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg11 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg11 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg12 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg12 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg13 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg13 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg14 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg14 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg15 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg15 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg2  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg2  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg3  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg3  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg4  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg4  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg5  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg5  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg6  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg6  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg7  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg7  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg8  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg8  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg9  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_datain_reg9  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a0~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a10~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a10~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a11~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a11~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a12~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a12~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a13~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a13~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a14~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a14~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a15~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a15~porta_memory_reg0 ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a1~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a1~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a2~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a2~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; High Pulse Width ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a3~porta_memory_reg0  ;
+; -2.000 ; 0.500        ; 2.500          ; Low Pulse Width  ; clock ; Fall       ; dmemory:memoria|altsyncram:data_memory|altsyncram_dmp3:auto_generated|ram_block1a3~porta_memory_reg0  ;
++--------+--------------+----------------+------------------+-------+------------+-------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Clock to Output Times                                                  ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 4.119 ; 4.119 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 3.775 ; 3.775 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 4.103 ; 4.103 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 3.877 ; 3.877 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 3.860 ; 3.860 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 3.992 ; 3.992 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 3.980 ; 3.980 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 3.866 ; 3.866 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 3.982 ; 3.982 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 3.956 ; 3.956 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 3.960 ; 3.960 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 4.119 ; 4.119 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 4.061 ; 4.061 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 4.053 ; 4.053 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 3.979 ; 3.979 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 3.993 ; 3.993 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 3.954 ; 3.954 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 3.921 ; 3.921 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 3.788 ; 3.788 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 3.863 ; 3.863 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 3.807 ; 3.807 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 3.993 ; 3.993 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 3.948 ; 3.948 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 3.920 ; 3.920 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                          ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 3.775 ; 3.775 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 3.775 ; 3.775 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 4.103 ; 4.103 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 3.877 ; 3.877 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 3.860 ; 3.860 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 3.992 ; 3.992 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 3.980 ; 3.980 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 3.866 ; 3.866 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 3.982 ; 3.982 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 3.956 ; 3.956 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 3.960 ; 3.960 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 4.119 ; 4.119 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 4.061 ; 4.061 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 4.053 ; 4.053 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 3.979 ; 3.979 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 3.788 ; 3.788 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 3.954 ; 3.954 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 3.921 ; 3.921 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 3.788 ; 3.788 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 3.863 ; 3.863 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 3.807 ; 3.807 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 3.993 ; 3.993 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 3.948 ; 3.948 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 3.920 ; 3.920 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.664  ; 0.215 ; N/A      ; N/A     ; -2.000              ;
+;  clock           ; -2.664  ; 0.215 ; N/A      ; N/A     ; -2.000              ;
+; Design-wide TNS  ; -92.62  ; 0.0   ; 0.0      ; 0.0     ; -237.38             ;
+;  clock           ; -92.620 ; 0.000 ; N/A      ; N/A     ; -237.380            ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------+
+; Clock to Output Times                                                  ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 7.240 ; 7.240 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 6.657 ; 6.657 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 7.229 ; 7.229 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 6.926 ; 6.926 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 6.896 ; 6.896 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 7.021 ; 7.021 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 7.002 ; 7.002 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 6.974 ; 6.974 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 6.908 ; 6.908 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 6.977 ; 6.977 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 6.941 ; 6.941 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 7.240 ; 7.240 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 6.980 ; 6.980 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 7.186 ; 7.186 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 7.159 ; 7.159 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 6.967 ; 6.967 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 7.076 ; 7.076 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 6.991 ; 6.991 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 6.943 ; 6.943 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 6.695 ; 6.695 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 6.834 ; 6.834 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 6.729 ; 6.729 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 7.076 ; 7.076 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 6.983 ; 6.983 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 6.940 ; 6.940 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                          ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; IRout[*]   ; clock      ; 3.775 ; 3.775 ; Rise       ; clock           ;
+;  IRout[0]  ; clock      ; 3.775 ; 3.775 ; Rise       ; clock           ;
+;  IRout[1]  ; clock      ; 4.103 ; 4.103 ; Rise       ; clock           ;
+;  IRout[2]  ; clock      ; 3.877 ; 3.877 ; Rise       ; clock           ;
+;  IRout[3]  ; clock      ; 3.860 ; 3.860 ; Rise       ; clock           ;
+;  IRout[4]  ; clock      ; 3.992 ; 3.992 ; Rise       ; clock           ;
+;  IRout[5]  ; clock      ; 3.980 ; 3.980 ; Rise       ; clock           ;
+;  IRout[6]  ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[7]  ; clock      ; 3.866 ; 3.866 ; Rise       ; clock           ;
+;  IRout[8]  ; clock      ; 3.982 ; 3.982 ; Rise       ; clock           ;
+;  IRout[9]  ; clock      ; 3.956 ; 3.956 ; Rise       ; clock           ;
+;  IRout[10] ; clock      ; 3.960 ; 3.960 ; Rise       ; clock           ;
+;  IRout[11] ; clock      ; 4.119 ; 4.119 ; Rise       ; clock           ;
+;  IRout[12] ; clock      ; 3.983 ; 3.983 ; Rise       ; clock           ;
+;  IRout[13] ; clock      ; 4.061 ; 4.061 ; Rise       ; clock           ;
+;  IRout[14] ; clock      ; 4.053 ; 4.053 ; Rise       ; clock           ;
+;  IRout[15] ; clock      ; 3.979 ; 3.979 ; Rise       ; clock           ;
+; PCout[*]   ; clock      ; 3.788 ; 3.788 ; Rise       ; clock           ;
+;  PCout[0]  ; clock      ; 3.954 ; 3.954 ; Rise       ; clock           ;
+;  PCout[1]  ; clock      ; 3.921 ; 3.921 ; Rise       ; clock           ;
+;  PCout[2]  ; clock      ; 3.788 ; 3.788 ; Rise       ; clock           ;
+;  PCout[3]  ; clock      ; 3.863 ; 3.863 ; Rise       ; clock           ;
+;  PCout[4]  ; clock      ; 3.807 ; 3.807 ; Rise       ; clock           ;
+;  PCout[5]  ; clock      ; 3.993 ; 3.993 ; Rise       ; clock           ;
+;  PCout[6]  ; clock      ; 3.948 ; 3.948 ; Rise       ; clock           ;
+;  PCout[7]  ; clock      ; 3.920 ; 3.920 ; Rise       ; clock           ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 88       ; 128      ; 40       ; 16       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clock      ; clock    ; 88       ; 128      ; 40       ; 16       ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 28    ; 28   ;
+; Unconstrained Output Ports      ; 24    ; 24   ;
+; Unconstrained Output Port Paths ; 24    ; 24   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Jun 28 12:13:41 2019
+Info: Command: quartus_sta TLE_Proc -c TLE_Proc
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'TLE_Proc.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clock clock
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.664
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.664       -92.620 clock 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.000      -237.380 clock 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.479
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.479       -50.443 clock 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 clock 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.000
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.000      -237.380 clock 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4566 megabytes
+    Info: Processing ended: Fri Jun 28 12:13:45 2019
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:01
+
+

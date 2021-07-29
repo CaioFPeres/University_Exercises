@@ -1,0 +1,48 @@
+SET HASH_CLIENTES_IDX_ORDER 1;
+SET HASH_CHAVES_PIX_IDX_ORDER 1;
+SET BTREE_ORDER 5;
+SET ARQUIVO_CLIENTES '66545678765;Maria Eugenia;12/04/1980;mariaeugenia@gmail.com;15998765645;0000005228.70;C66545678765&N15998765645&Emariaeugenia@gmail.com&Aabc80d38-ac29-48ab-9743-764d68b28493;##################################################################################99876556782;Gabriel Augusto;04/05/1997;ga.augusto@gmail.com;15997675654;0000224421.50;Ega.augusto@gmail.com&C99876556782&Ac6c10fd9-9fd3-447a-95bb-386215dceda1&N15997675654;####################################################################################44565434213;Geovana Santana;25/10/1994;ge.santana@gmail.com;16996543652;0000023965.00;C44565434213&Ege.santana@gmail.com&Ae5ba952e-f48d-48fd-a9ff-2818edd11c28&N16996543652;####################################################################################54654367865;Gustavo Almeida;19/11/1992;galmeida@gmail.com;14998786754;0078529236.54;Egalmeida@gmail.com&N14998786754&Ae543bbeb-b8c9-4d7f-beef-81899b79cea2&C54654367865;########################################################################################37567876542;Melissa Santos;13/04/1977;melissa@gmail.com;15998765435;0000002839.90;;#############################################################################################################################################################################14565436782;Melissa Pereira;19/09/1993;melissa@gmail.com;15997654738;0000020501.90;A4064b4e3-53ac-4469-a819-708177365752&C14565436782&Emelissa@gmail.com&N15997654738;##########################################################################################23465784759;Jose Santos;03/07/1968;josesantos@gmail.com;14998786754;0000036909.40;;#############################################################################################################################################################################';
+SET ARQUIVO_TRANSACOES '14565436782546543678650000000984.702021050116205866545678765145654367820000000059.502021050821534814565436782445654342130000002266.002021051808445054654367865998765567820000000096.002021051810372144565434213665456787650000000068.002021052718462999876556782665456787650000000551.002021052916081244565434213145654367820000000582.0020210604152855';
+
+-- OPERAÇÕES CONTEMPLADAS PELO CASO DE TESTE:
+-- (COM ARQUIVO DE CLIENTES)
+-- TRANSFERÊNCIA
+-- BUSCAR TRANSAÇÃO
+-- IMPRIMIR ARQUIVO DE CLIENTES
+-- IMPRIMIR ARQUIVO DE TRANSAÇÕES
+-- IMPRIMIR ÍNDICE DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CHAVES PIX
+-- IMPRIMIR ÍNDICE DE TRANSAÇÕES
+-- IMPRIMIR ÍNDICE DE TIMESTAMP
+
+\echo file ARQUIVO_CLIENTES
+\echo file ARQUIVO_TRANSACOES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+\echo index transacoes_idx
+\echo index timestamp_cpf_origem_idx
+
+-- listando todas as transações
+SELECT * FROM transacoes WHERE timestamp BETWEEN '0' AND '9' ORDER BY timestamp ASC;
+
+-- listando um intervalo de transações por período
+SELECT * FROM transacoes WHERE timestamp BETWEEN '20210508215347' AND '20210529160813' ORDER BY timestamp ASC;
+SELECT * FROM transacoes WHERE timestamp BETWEEN '20210508215349' AND '20210529160811' ORDER BY timestamp ASC;
+
+-- listando todas as transações em 06/2021
+SELECT * FROM transacoes WHERE timestamp BETWEEN '202106' AND '202106' ORDER BY timestamp ASC;
+
+-- listando todas as transações em 2*/05/2021
+SELECT * FROM transacoes WHERE timestamp BETWEEN '2021052' AND '2021052' ORDER BY timestamp ASC;
+
+-- listando todas as transações de um cliente
+SELECT * FROM transacoes WHERE cpf_origem = '14565436782' AND timestamp BETWEEN '0' AND '9' ORDER BY timestamp ASC;
+
+-- listando as transações de um cliente que não possui transferências
+SELECT * FROM transacoes WHERE cpf_origem = '37567876542' AND timestamp BETWEEN '0' AND '9' ORDER BY timestamp ASC;
+
+-- listando as transações de um cliente por intervalo
+SELECT * FROM transacoes WHERE cpf_origem = '14565436782' AND timestamp BETWEEN '20210501162058' AND '20210508215348' ORDER BY timestamp ASC;
+SELECT * FROM transacoes WHERE cpf_origem = '44565434213' AND timestamp BETWEEN '20210529160812' AND '20210604152855' ORDER BY timestamp ASC;
+
+\q

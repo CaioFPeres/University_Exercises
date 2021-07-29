@@ -1,0 +1,55 @@
+SET HASH_CLIENTES_IDX_ORDER 1;
+SET HASH_CHAVES_PIX_IDX_ORDER 1;
+SET BTREE_ORDER 5;
+SET ARQUIVO_CLIENTES '66545678765;Maria Eugenia;12/04/1980;mariaeugenia@gmail.com;15998765645;0000004669.20;C66545678765&N15998765645&Emariaeugenia@gmail.com&Aabc80d38-ac29-48ab-9743-764d68b28493;##################################################################################99876556782;Gabriel Augusto;04/05/1997;ga.augusto@gmail.com;15997675654;0000224876.50;Ega.augusto@gmail.com&C99876556782&Ac6c10fd9-9fd3-447a-95bb-386215dceda1&N15997675654;####################################################################################44565434213;Geovana Santana;25/10/1994;ge.santana@gmail.com;16996543652;0000022349.00;C44565434213&Ege.santana@gmail.com&Ae5ba952e-f48d-48fd-a9ff-2818edd11c28&N16996543652;####################################################################################54654367865;Gustavo Almeida;19/11/1992;galmeida@gmail.com;14998786754;0078528347.84;Egalmeida@gmail.com&N14998786754&Ae543bbeb-b8c9-4d7f-beef-81899b79cea2&C54654367865;########################################################################################37567876542;Melissa Santos;13/04/1977;melissa@gmail.com;15998765435;0000002839.90;;#############################################################################################################################################################################14565436782;Melissa Pereira;19/09/1993;melissa@gmail.com;15997654738;0000023111.10;A4064b4e3-53ac-4469-a819-708177365752&C14565436782&Emelissa@gmail.com&N15997654738;##########################################################################################23465784759;Jose Santos;03/07/1968;josesantos@gmail.com;14998786754;0000036909.40;;#############################################################################################################################################################################';
+
+-- OPERAÇÕES CONTEMPLADAS PELO CASO DE TESTE:
+-- (COM ARQUIVO DE CLIENTES)
+-- TRANSFERÊNCIA
+-- BUSCAR TRANSAÇÃO
+-- IMPRIMIR ARQUIVO DE CLIENTES
+-- IMPRIMIR ARQUIVO DE TRANSAÇÕES
+-- IMPRIMIR ÍNDICE DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CHAVES PIX
+-- IMPRIMIR ÍNDICE DE TRANSAÇÕES
+-- IMPRIMIR ÍNDICE DE TIMESTAMP
+
+\echo file ARQUIVO_CLIENTES
+\echo file ARQUIVO_TRANSACOES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+\echo index transacoes_idx
+\echo index timestamp_cpf_origem_idx
+
+-- gerando transferências
+INSERT INTO transacoes VALUES ('15997654738', '54654367865', 984.7);
+INSERT INTO transacoes VALUES ('15998765645', '4064b4e3-53ac-4469-a819-708177365752', 59.5);
+INSERT INTO transacoes VALUES ('4064b4e3-53ac-4469-a819-708177365752', 'ge.santana@gmail.com', 2266);
+INSERT INTO transacoes VALUES ('galmeida@gmail.com', 'ga.augusto@gmail.com', 96);
+INSERT INTO transacoes VALUES ('16996543652', '15998765645', 68);
+INSERT INTO transacoes VALUES ('ga.augusto@gmail.com', 'abc80d38-ac29-48ab-9743-764d68b28493', 551);
+INSERT INTO transacoes VALUES ('44565434213', 'melissa@gmail.com', 582);
+
+-- usuário transferindo para si mesmo
+INSERT INTO transacoes VALUES ('14565436782', '15997654738', 33);
+INSERT INTO transacoes VALUES ('abc80d38-ac29-48ab-9743-764d68b28493', '66545678765', 94);
+
+-- chave PIX não cadastrada
+INSERT INTO transacoes VALUES ('josesantos@gmail.com', '14565436782', 49);
+
+-- valor inválido
+INSERT INTO transacoes VALUES ('15997654738', '54654367865', -45);
+INSERT INTO transacoes VALUES ('15998765645', '4064b4e3-53ac-4469-a819-708177365752', 0);
+INSERT INTO transacoes VALUES ('4064b4e3-53ac-4469-a819-708177365752', 'ge.santana@gmail.com', -1.2);
+
+-- saldo insuficiente
+INSERT INTO transacoes VALUES ('15997654738', '54654367865', 20501.91);
+
+
+\echo file ARQUIVO_CLIENTES
+\echo file ARQUIVO_TRANSACOES
+\echo index clientes_idx
+\echo index transacoes_idx
+\echo index timestamp_cpf_origem_idx
+
+\q

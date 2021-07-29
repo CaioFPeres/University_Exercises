@@ -1,0 +1,73 @@
+create database teste;
+
+use teste;
+
+CREATE TABLE `tipos sanguineos` (
+  `IDTIPO` int(255) NOT NULL,
+  `Sistema ABO` varchar(255) DEFAULT NULL,
+  `Sistema RH` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`IDTIPO`),
+  KEY `IDTIPO` (`IDTIPO`));
+
+CREATE TABLE `doadores` (
+  `IDDoador` bigint(255) NOT NULL,
+  `RG` varchar(255) DEFAULT NULL,
+  `Nome` varchar(255) DEFAULT NULL,
+  `Genero` varchar(255) DEFAULT NULL,
+  `Data de Nascimento` datetime(6) DEFAULT NULL,
+  `Cidade` varchar(255) DEFAULT NULL,
+  `Bairro` varchar(255) DEFAULT NULL,
+  `Numero` varchar(255) DEFAULT NULL,
+  `Pai` varchar(255) DEFAULT NULL,
+  `Mae` varchar(255) DEFAULT NULL,
+  `IDTIPO` int(255) DEFAULT NULL,
+  PRIMARY KEY (`IDDoador`),
+  KEY `IDDoador` (`IDDoador`),
+  KEY `FKTIPO` (`IDTIPO`),
+  KEY `IDDoador_2` (`IDDoador`),
+  KEY `IDDoador_3` (`IDDoador`),
+  CONSTRAINT `FKTIPO` FOREIGN KEY (`IDTIPO`) REFERENCES `tipos sanguineos` (`idtipo`));
+
+CREATE TABLE `exames` (
+  `IDExame` bigint(255) NOT NULL,
+  `IDDoador` bigint(255) DEFAULT NULL,
+  `Hepatite B` int(255) DEFAULT NULL,
+  `Hepatite C` int(255) DEFAULT NULL,
+  `Chagas` int(255) DEFAULT NULL,
+  `Sifilis` int(255) DEFAULT NULL,
+  `Aids` int(255) DEFAULT NULL,
+  `HTLV I` int(255) DEFAULT NULL,
+  `HTLV II` int(255) DEFAULT NULL,
+  `AnticorposIrregulares` int(255) DEFAULT NULL,
+  `DataExame` datetime(6) DEFAULT NULL,
+  `SegurancaBolsa` int(255) DEFAULT NULL,
+  PRIMARY KEY (`IDExame`),
+  KEY `FK4` (`IDDoador`),
+  CONSTRAINT `FK4` FOREIGN KEY (`IDDoador`) REFERENCES `doadores` (`iddoador`));
+
+CREATE TABLE `triagem` (
+  `IDTriagem` bigint(255) NOT NULL,
+  `IDDoador` bigint(255) DEFAULT NULL,
+  `SegurancaDoacao` int(255) DEFAULT NULL,
+  `Anemia` int(255) DEFAULT NULL,
+  `Triagem` int(255) DEFAULT NULL,
+  `DataTriagem` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`IDTriagem`) USING BTREE,
+  KEY `SegurancaDoacao` (`SegurancaDoacao`),
+  KEY `IDDoador` (`IDDoador`),
+  CONSTRAINT `FK2` FOREIGN KEY (`IDDoador`) REFERENCES `doadores` (`iddoador`));
+
+CREATE TABLE `doacoes` (
+  `IDDoacao` bigint(255) NOT NULL,
+  `IDDoador` bigint(255) NOT NULL,
+  `SegurancaDoacao` int(255) DEFAULT NULL,
+  `DataDoacao` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`IDDoacao`) USING BTREE,
+  KEY `FK2` (`IDDoador`),
+  KEY `FK3` (`SegurancaDoacao`),
+  CONSTRAINT `FK1` FOREIGN KEY (`IDDoador`) REFERENCES `doadores` (`iddoador`),
+  CONSTRAINT `FK3` FOREIGN KEY (`SegurancaDoacao`) REFERENCES `triagem` (`segurancadoacao`));
+
+
+
+

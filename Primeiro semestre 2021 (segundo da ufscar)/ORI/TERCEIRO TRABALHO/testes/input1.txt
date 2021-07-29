@@ -1,0 +1,46 @@
+SET HASH_CLIENTES_IDX_ORDER 11;
+
+-- OPERAÇÕES CONTEMPLADAS PELO CASO DE TESTE:
+-- CADASTRO DE CLIENTES
+-- IMPRIMIR ARQUIVO DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CLIENTES
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente A
+INSERT INTO clientes VALUES ('64681295655', 'Maria Eugenia', '12/04/1980', 'mariaeugenia@gmail.com', '15998765645');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente B (colide com o hash do cliente A)
+INSERT INTO clientes VALUES ('02677449273', 'Gabriel Augusto', '04/05/1997', 'ga.augusto@gmail.com', '15997675654');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente C
+INSERT INTO clientes VALUES ('79519734993', 'Geovana Santana', '25/10/1994', 'ge.santana@gmail.com', '16996543652');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente D (colide com o hash do cliente A e dá a volta na tabela)
+INSERT INTO clientes VALUES ('33197347759', 'Gustavo Almeida', '19/11/1992', 'galmeida@gmail.com', '14998786754');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente E (colide com o hash do cliente A e dá a volta na tabela)
+INSERT INTO clientes VALUES ('37567876542', 'Melissa Santos', '13/04/1977', 'melissa@gmail.com', '15998765435');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente F, email igual ao do cliente E (colide com o hash do cliente D)
+INSERT INTO clientes VALUES ('14565436782', 'Melissa Pereira', '19/09/1993', 'melissa@gmail.com', '15997654738');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+-- cliente G, celular igual ao do cliente D (colide com o hash do cliente A e dá a volta na tabela)
+INSERT INTO clientes VALUES ('23465784759', 'Jose Santos', '03/07/1968', 'josesantos@gmail.com', '14998786754');
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+
+\q

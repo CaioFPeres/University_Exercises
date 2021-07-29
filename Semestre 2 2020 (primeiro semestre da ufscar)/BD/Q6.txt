@@ -1,0 +1,15 @@
+4)
+
+Os dados da tabela foram apagados por conta da função anterior ter mais código do que ela deveria.
+
+7)
+
+Os valores não foram deletados por conta da função quote_ident() que transforma a query original em uma query com aspas duplas, de modo a dificultar os injections.
+
+8)
+
+Foi criada a tabela T1(id int); DELETE FROM testeSQLi; --
+
+9)
+
+O que aconteceu foi que graças a função quote_ident() foi criada uma tabela com o nome do comando SQL, ao inves de ter uma tabela deletada.

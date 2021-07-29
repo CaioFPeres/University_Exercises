@@ -1,0 +1,5 @@
+*.o
+Atividade*
+*.cpp
+*.tmp
+*-sol.c

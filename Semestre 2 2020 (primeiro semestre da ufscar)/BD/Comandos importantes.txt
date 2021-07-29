@@ -1,0 +1,7 @@
+SELECT * FROM Customers WHERE SUBSTRING(CustomerName, 1, 5) = 'Ana';
+
+SELECT * FROM Customers WHERE CustomerName LIKE '%Ana%';
+
+SELECT * FROM empregado WHERE nome_empregado ILIKE '%MIGUEL%';
+
+SELECT AVG(salario), depto FROM empregado, departamento WHERE departamento.cod = empregado.depto GROUP BY depto HAVING AVG(salario) > 1200;

@@ -1,0 +1,69 @@
+EXC 1)
+
+Uma visão materializada é uma cópia dos resultados de uma consulta para uma nova estrutura. 
+Dessa forma, em se tratando de uma consulta recorrente, é mais rápido mostrar os resultados diretamente de uma unica tabela que já possui esses resultados previamente processados. 
+Porém a desvantagem é que ela não é sincronizada com as tabelas em que ela foi baseada. Por este motivo, no comando de criação é necessário determinar um período em que a visão será atualizada. 
+Além disso, ainda é possivel definir um indice para a visão materializada, fazendo com que a consulta fique ainda mais rápida.
+
+
+EXC 2)
+
+a)
+
+
+CREATE OR REPLACE FUNCTION showtables(db varchar)
+RETURNS SETOF RECORD AS $$
+	
+
+BEGIN
+
+	create extension dblink;
+
+	SELECT dblink_connect(db,'host=localhost port=5432 dbname=' || db || ' user=postgres password=caioperes options=-csearch_path=');
+
+	RETURN QUERY SELECT * FROM dblink(db, 'SELECT tablename, hasindexes, hastriggers FROM pg_tables WHERE schemaname = ''public''') AS t(a name, e boolean, f boolean);
+
+END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM showtables('Projeto') as f(nome name, temIndices boolean, temTriggers boolean);
+
+
+
+
+b)
+
+
+CREATE OR REPLACE FUNCTION showdb()
+RETURNS SETOF RECORD AS $$
+	
+
+BEGIN
+
+	RETURN QUERY SELECT datname, usename FROM pg_database, pg_user WHERE datdba = usesysid;
+	
+END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM showdb() as f(nomeDB name, DBA name);
+
+
+
+c)
+
+
+
+CREATE OR REPLACE FUNCTION showtable(tabela varchar)
+RETURNS SETOF RECORD AS $$
+	
+
+BEGIN
+
+	RETURN QUERY SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_name = tabela;
+	
+END
+$$ LANGUAGE plpgsql;
+
+SELECT * FROM showtable('empregado') as f(nomeColuna information_schema.sql_identifier, tipo information_schema.character_data, podesernull information_schema.yes_or_no);
+
+

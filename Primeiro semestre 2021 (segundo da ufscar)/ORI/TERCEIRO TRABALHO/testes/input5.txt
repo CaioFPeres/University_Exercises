@@ -1,0 +1,116 @@
+SET HASH_CLIENTES_IDX_ORDER 11;
+SET HASH_CHAVES_PIX_IDX_ORDER 11;
+SET BTREE_ORDER 5;
+SET ARQUIVO_CLIENTES '66545678765;Maria Eugenia;12/04/1980;maria.eu9@gmail.com;15998765645;0000000000.00;;############################################################################################################################################################################99876556782;Gabriel Augusto;04/05/1997;ga.augusto@gmail.com;15997675654;0000000000.00;;#########################################################################################################################################################################44565434213;Geovana Santana;25/10/1994;ge.santana@gmail.com;16996543652;0000000000.00;;#########################################################################################################################################################################54654367865;Gustavo Almeida;19/11/1992;galmeida@gmail.com;14998786754;0000000000.00;;###########################################################################################################################################################################37567876542;Melissa Santos;13/04/1977;melissa@gmail.com;15998765435;0000000000.00;;#############################################################################################################################################################################14565436782;Melissa Pereira;19/09/1993;melissa@gmail.com;15997654738;0000000000.00;;############################################################################################################################################################################23465784759;Jose Santos;03/07/1968;josesantos@gmail.com;14998786754;0000000000.00;;#############################################################################################################################################################################';
+
+-- OPERAÇÕES CONTEMPLADAS PELO CASO DE TESTE:
+-- (COM ARQUIVO DE CLIENTES)
+-- CADASTRO DE CHAVE PIX
+-- IMPRIMIR ARQUIVO DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CLIENTES
+-- IMPRIMIR ÍNDICE DE CHAVES PIX
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'A') WHERE cpf = '66545678765';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'C') WHERE cpf = '99876556782';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '44565434213';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no final da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '14565436782';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'N') WHERE cpf = '54654367865';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- chave PIX já cadastrada por outro usuário
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '37567876542';
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'N') WHERE cpf = '23465784759';
+
+-- tentando cadastrar chaves PIX duplicadas
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'A') WHERE cpf = '66545678765';
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'C') WHERE cpf = '99876556782';
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '44565434213';
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '14565436782';
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'N') WHERE cpf = '54654367865';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada que já possui elementos
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'C') WHERE cpf = '66545678765';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'N') WHERE cpf = '66545678765';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '99876556782';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'C') WHERE cpf = '44565434213';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no começo da lista encadeada vazia
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'C') WHERE cpf = '14565436782';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no final da lista encadeada que já possui elementos
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '54654367865';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+-- inserção de uma chave PIX no meio da lista encadeada que já possui elementos
+UPDATE clientes SET chaves_pix = array_append(chaves_pix, 'E') WHERE cpf = '66545678765';
+
+\echo file ARQUIVO_CLIENTES
+\echo index clientes_idx
+\echo index chaves_pix_idx
+
+\q

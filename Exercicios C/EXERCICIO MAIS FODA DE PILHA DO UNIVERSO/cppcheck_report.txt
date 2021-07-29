@@ -1,0 +1,4 @@
+[main.c:45]: (warning) scanf() without field width limits can crash with huge input data.
+[pilha.c:31]: (style) The function 'desempilha_retorna' is never used.
+[pilha.c:21]: (style) The function 'tamanho' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

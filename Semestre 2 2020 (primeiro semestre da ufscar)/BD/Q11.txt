@@ -1,0 +1,35 @@
+1)
+
+As transações  ajudam a manter a consistência dos dados ao utilizarmos a palavra commit após uma operação. Dessa forma, caso uma falha no sistema aconteça de modo a impossibilitar a conclusão da tarefa, ela fará um rollback para a ultima operação validada pelo commit.
+
+Além de falhas, também podem haver concorrência no acesso aos dados do banco. Nesse caso, podemos entender com o seguinte exemplo:
+
+T1: UPDATE empregado SET salario = salario + 1000 WHERE id = 1;
+
+T2: UPDATE empregado SET salario = salario + 2000 WHERE id = 1;
+
+Ao executar essas duas transações por administradores, haverá uma concorrencia de acesso. Nesse caso, o SGBD pode utilizar de um método, como o Serializable Isolation para executar sequencialmente as transações.
+
+
+2)
+
+BEGIN TRANSACTION;
+
+	UPDATE empregado SET salario = salario + 1000 WHERE id = 1;
+
+COMMIT;
+
+
+
+
+3)
+
+
+
+1) Correto, para garantir a atomicidade as transações acontecem na forma "tudo ou nada".
+
+2) A durabilidade da transação só é garantida pelo commit ao final da transação.
+
+3) Correto, estará garantido tanto o isolamento quanto a consistencia de T1, pois a consistencia garante a transição de um estado para outro, de modo a evitar corrupção de dados.
+
+4) Correto, o isolamento garante que as transações sejam executadas se modo sequencial para não haver concorrencia de acesso.

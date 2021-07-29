@@ -1,0 +1,19 @@
+Nome: Caio Fernando Peres     RA: 2000784
+
+1 - Requisito de Software é um dos pontos a ser desenvolvido pro software, que leve em conta a função daquele software. Especificação de Requisitos é estudar a função e especificações de um Requisito no software.
+2 - Software correto é aquele que cumpre com todas as funções que se espera. Software consistente é um software que não apresenta falhas e cumpre com seu objetivo. Software completo é o software que não faltou nenhum requisito em seu planejamento. Software robusto é aquele que é bem otimizado e não apresenta lentidão.
+3 - A validação de software é um processo que comprova documentalmente que o sistema cumpre com as funções das quais foi designado, em conformidade com as especificações dos requisitos do usuário e com a garantia de segurança e rastreabilidade de informações. São realizados testes de desafio com o objetivo de verificar se as especificações foram atendidas, podendo envolver vários ciclos de revisão e testes dependendo do tipo de sistema, método de desenvolvimento utilizado e seu uso.
+4 - Software correto é aquele que cumpre com todas as funções que se espera. Requisito correto é um requisito condizente com as funções do software.
+5 - As consequencias de uma atividade de ER insuficiente resultariam em requisitos que não cumprem totalmente sua função.,
+6 - Existem variações em sistemas que utilizam tempo real por variações do tempo do processador.
+7 - O engenheiro de software tem que saber tudo sobre o sistema bem como ajudar a construí-lo. O engenheiro de requisitos precisa verificar bem os os pontos e aprofundar em cada um deles para que os desenvolvedores entendam tais tópicos. A engenharia de requisitos é um processo que engloba todas as atividades que contribuem para a produção de um documento de requisitos e sua manutenção ao longo do tempo.
+8 - Entrevista e Questionários são utilizados para obter informações mais precisas do software pretendido, sendo a Entrevista uma conversa direta com o cliente e questionário um formulário contendo campos com perguntas visando a elucidar o engenheiro de software.
+9 - fases:     
+    
+    identificação ou levantamento;
+    análise e negociação;
+    especificação e documentação;
+    Análise estruturada;
+    Compreensão interpolar;
+    KFGOD;
+    validação.

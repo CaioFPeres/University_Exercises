@@ -1,0 +1,176 @@
+2)
+
+2.1 - Tempo: 241 msec.
+2.2 - 3539 rows affected.
+2.3 - 
+
+"Gather  (cost=1000.00..63699.89 rows=2860 width=6) (actual time=60.479..193.672 rows=3539 loops=1)"
+"  Workers Planned: 2"
+"  Workers Launched: 2"
+"  ->  Parallel Seq Scan on empregado  (cost=0.00..62413.89 rows=1192 width=6) (actual time=33.147..135.630 rows=1180 loops=3)"
+"        Filter: ((nome_empregado)::text = 'Mary'::text)"
+"        Rows Removed by Filter: 665487"
+"Planning Time: 0.071 ms"
+"Execution Time: 193.770 ms"
+
+
+2.4 - Varreu no total por volta de 1.336.873 tuplas, removendo 1.333.334 pelo critério de busca.
+
+3)
+
+3.1 - Tempo: 273 msec.
+3.2 - 
+
+"Gather  (cost=1000.00..74644.37 rows=91521 width=6) (actual time=0.720..201.561 rows=92073 loops=1)"
+"  Workers Planned: 2"
+"  Workers Launched: 2"
+"  ->  Parallel Seq Scan on empregado  (cost=0.00..64492.27 rows=38134 width=6) (actual time=13.041..150.726 rows=30691 loops=3)"
+"        Filter: (((nome_empregado)::text = 'Mary'::text) OR (depto = 10))"
+"        Rows Removed by Filter: 635976"
+"Planning Time: 0.087 ms"
+"Execution Time: 203.248 ms"
+
+3.3 - Tempo: 246 msec. Varreu no total por volta de 1.333.334 e foram removidas 1.241.261 pelo criterio de busca.
+
+4)
+
+4.1 - Indice criado em 3 secs 586 msec. Foi utilizado o método padrão (B-tree).
+
+
+5)
+
+2.1 - 61 msec.
+2.2 - 3539 rows affected.
+2.3 - 
+
+"Bitmap Heap Scan on empregado  (cost=58.65..9319.08 rows=2867 width=98) (actual time=0.621..12.207 rows=3539 loops=1)"
+"  Recheck Cond: ((nome_empregado)::text = 'Mary'::text)"
+"  Heap Blocks: exact=2061"
+"  ->  Bitmap Index Scan on empregado2  (cost=0.00..57.93 rows=2867 width=0) (actual time=0.458..0.458 rows=3539 loops=1)"
+"        Index Cond: ((nome_empregado)::text = 'Mary'::text)"
+"Planning Time: 0.697 ms"
+"Execution Time: 12.340 ms"
+
+2.4 - Varreu no total 3539 tuplas.
+
+3.1 - 284 msec.
+3.2 - 
+
+"Gather  (cost=1000.00..74695.91 rows=91739 width=98) (actual time=0.663..205.790 rows=92073 loops=1)"
+"  Workers Planned: 2"
+"  Workers Launched: 2"
+"  ->  Parallel Seq Scan on empregado  (cost=0.00..64522.01 rows=38225 width=98) (actual time=12.495..148.732 rows=30691 loops=3)"
+"        Filter: (((nome_empregado)::text = 'Mary'::text) OR (depto = 10))"
+"        Rows Removed by Filter: 635976"
+"Planning Time: 0.065 ms"
+"Execution Time: 207.446 ms"
+
+3.3 - Tempo: 41 msec.
+
+"Bitmap Heap Scan on empregado  (cost=57.96..9325.57 rows=128 width=98) (actual time=0.648..2.036 rows=131 loops=1)"
+"  Recheck Cond: ((nome_empregado)::text = 'Mary'::text)"
+"  Filter: (depto = 10)"
+"  Rows Removed by Filter: 3408"
+"  Heap Blocks: exact=2061"
+"  ->  Bitmap Index Scan on empregado2  (cost=0.00..57.93 rows=2867 width=0) (actual time=0.446..0.446 rows=3539 loops=1)"
+"        Index Cond: ((nome_empregado)::text = 'Mary'::text)"
+"Planning Time: 0.078 ms"
+"Execution Time: 2.113 ms"
+
+
+6)
+
+6.1 - Sim, utilizou tanto o indice quanto parallel scan.
+6.2 - Aconteceu no arquivo de dados.
+6.3 - A consulta que envolve o indice foi executada de maneira mais eficiente pois se trata de uma busca binária, que naturalmente é de uma complexidade menor.
+6.4 - Nesse caso, a consulta com OR se provou mais rapida na prática. Porém, em um grande volume de dados, talvez utilizar UNION seja melhor.
+
+7)
+
+7.1 - O plano de execução utilizou scan sequencial.
+
+8)
+
+8.1 - Não utilizou indice pois tem um requisito maior de critério do que apenas verificar a string toda do nome.
+8.2 - É possivel notar que o tempo da busca demorou mais, afinal é necessário fazer mais verificações. O método de busca também foi o scan sequencial.
+
+9)
+
+9.1 - O plano de execução nos mostra que primeiro as informações são organizadas e depois filtradas, utilizando um scan sequencial. Foram organizadas utilizando um método chamado external merge.
+
+10) Feito em 4 secs 213 msec.
+
+11)
+
+11.1 - Foi utilizado o indice composto.
+11.2 - A consulta 7 utilizou o indice simples.
+11.3 - Foi utilizado um scan sequencial.
+
+12)
+
+12.1 - Não foi possivel melhorar o desempenho com a criação do indice.
+
+13)
+
+13.1 - Ambas consultas utilizam um scan sequencial no departamento primeiro e depois um index scan usando o indice composto na tabela empregado.
+13.2 - O tempo é o mesmo, 120 msec.
+
+14) - Não é possivel melhorar ainda mais o tempo da consulta. Foi criado um novo indice na tabela departamento (cod), mas ele não foi significativo.
+
+15) - Nenhuma diferença.
+
+16) - Houve um scan sequencial no departamento, um bitmap heap scan no empregado e um bitmap index scan no indice departamento.
+
+17)
+
+17.1 - Tempo: 1 secs 500 msec.
+17.2 - O plano de consulta não contem o indice. Isso se deve pois provavelmente a amostragem da consulta não é suficiente para compensar o uso do indice.
+17.3 - Indice criado em 1 secs 461 msec.
+17.4 - Sim, o plano de consulta possui o indice criado. Isso se deve pois provavelmente a amostragem da consulta é suficiente para compensar o uso do indice.
+17.5 - Nesse caso, o cenário é outro. O indice não foi utilizado pois o indice criado é com base no campo salário, e nesse momento estamos utilizando o parâmetro depto.
+
+18)
+
+18.1 - No plano de consulta foi possivel ver que o indice foi utilizado em ambos os casos porém a função MAX() utilizou o indice ao contrário, de trás para frente.
+
+19)
+
+SELECT salario FROM empregado ORDER BY salario DESC FETCH FIRST 1 ROWS ONLY
+
+Foi utilizado varredura em indice, ao contrário.
+
+SELECT DISTINCT salario FROM empregado ORDER BY salario DESC FETCH FIRST 1 ROWS ONLY
+
+Foi utilizado varredura em indice, ao contrário.
+
+
+20)
+
+
+EXPLAIN ANALYZE SELECT nome_empregado FROM empregado WHERE salario = (SELECT MAX(salario) FROM empregado);
+
+Essa consulta utiliza o indice duas vezes, sendo bem rapida.
+
+
+21)
+
+
+Foi inserido um novo valor de salário maximo na tabela e testado a seguinte consulta:
+
+EXPLAIN ANALYZE SELECT nome_empregado, salario FROM empregado WHERE salario = (SELECT MAX(salario) FROM empregado);
+
+O planejamento da consulta foi:
+
+"Index Scan using salario on empregado  (cost=0.90..8.91 rows=1 width=14) (actual time=0.024..0.025 rows=1 loops=1)"
+"  Index Cond: (salario = $1)"
+"  InitPlan 2 (returns $1)"
+"    ->  Result  (cost=0.46..0.47 rows=1 width=32) (actual time=0.017..0.017 rows=1 loops=1)"
+"          InitPlan 1 (returns $0)"
+"            ->  Limit  (cost=0.43..0.46 rows=1 width=8) (actual time=0.016..0.016 rows=1 loops=1)"
+"                  ->  Index Only Scan Backward using salario on empregado empregado_1  (cost=0.43..64840.44 rows=2000001 width=8) (actual time=0.015..0.015 rows=1 loops=1)"
+"                        Index Cond: (salario IS NOT NULL)"
+"                        Heap Fetches: 1"
+"Planning Time: 0.119 ms"
+"Execution Time: 0.038 ms"
+
+A consulta utilizou o indice. Retornou o nome e o novo salário maximo inserido.

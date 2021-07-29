@@ -1,0 +1,13 @@
+Recursividade: Construção
+Problema: Enunciado geral que relaciona uma entrada e uma saida.
+Instancia do problema: amostra particular do problema.
+
+Antes de projetarmos um algoritmo recursivo convem definirmos nosso problema recursivamente. Ex: Problema da busca em vetor: defina o vetor.
+Problema da inserção numa arvore binaria. Defina a arvore binaria.
+Pensando problemas (estruturas) recursivamente.
+
+1) Dentre todas as instancias qual é a trivial? A mais facil? Caso base: vetor vazio.
+Passo recursivo:
+vetor (tipo vetor v[], int n). O vetor é uma sequencia contigua de n itens.
+a) V é vazio. 
+b) Se v não for vazio há um item no indice zero e um vetor com n-1 itens no indice 1.
